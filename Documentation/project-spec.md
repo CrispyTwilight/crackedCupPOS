@@ -1,7 +1,7 @@
-Team: Hunter Kauffman and John O'Neal
-Course: ILCC Intro to Programming Logic CIS-125-E100
+# Project Description
 
-Project Description
+**Team:** Hunter Kauffman and John O'Neal<br>
+**Course:** ILCC Intro to Programming Logic CIS-125-E100
 
 For your first projects you will be working in your groups to complete the following task:
 
@@ -20,7 +20,6 @@ Some requirements:
 Those are the only hard requirements. If anyone edits someone else's work, ensure that it is properly referenced/noted.
 
 Scoring:
-
 - Document: 5pts
 - Readability: 5pts
 - Reusability: 5pts
@@ -31,5 +30,3 @@ Scoring:
     - GUI: 15pts
 - Gen/Eff: 10pts
 - Participation: 25pts
-
-Also, please add me to any Git repositories so I can see who contributes what.
