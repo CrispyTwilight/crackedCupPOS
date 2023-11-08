@@ -9,14 +9,13 @@ Create a Point of Sale (PoS) object-oriented GUI desktop application for a the C
 ## Tasks
 ### GUI Pages
 - Dashboard/home with metrics
-    Daily sales, inventory status, customer count
+    Daily sales, total gross sales, total orders
 - Process Order
 - Process Payment
-- Manage Inventory
-- Maintain Customer Records
 
 The GUI will be designed in C# amd implemented using WPF with XAML.<br>
 Data will be stored as text records in files and loaded as needed.
+The application will be designed will be in CLI to prototype.
 
 ### Classes / Subclasses
 #### Order Class:
@@ -24,6 +23,7 @@ Data will be stored as text records in files and loaded as needed.
     - itemsOrdered: List of items in the order.
     - quantity: Quantity of each item.
     - orderType: Type of order (In Store or Take Out).
+    - orderNum: 
 - Methods:
     - calculateTotalCost(): Calculates the total cost of the order.
     - addItem(): Adds an item to the order.
@@ -32,9 +32,12 @@ Data will be stored as text records in files and loaded as needed.
 - In Store (Subclass of Order):
     - Fields:
         - tableNumber: The table number for in-store orders.
+        - 
 
 - Take Out (Subclass of Order):
     - No additional fields or methods for now, as it inherits from the Order class.
+        - cupType: 
+        - label:
 
 #### Payment Class:
 - Fields:
@@ -45,36 +48,14 @@ Data will be stored as text records in files and loaded as needed.
     - generateReceipt(): Generates a receipt for the payment.
 
 - Cash (Subclass of Payment):
+    - change
     - No additional fields or methods for now, as it inherits from the Payment class.
 
 - Card (Subclass of Payment):
+    - cardNum
+    - cardExp
+    - 
     - No additional fields or methods for now, as it inherits from the Payment class.
-
-#### Inventory Class:
-- Fields: 
-    - itemName: Name of the item.
-    - quantity: Quantity of the item.
-    - category: Category of the item (Food/Drink or Retail).
-- Methods:
-    - updateQuantity(): Updates the quantity of an item.
-    - addNewItem(): Adds a new item to the inventory.
-    - removeItem(): Removes an item from the inventory.
-
-Food and Drink Items (Subclass of Inventory):
-- No additional fields or methods for now, as it inherits from the Inventory class.
-
-Retail Items (Subclass of Inventory):
-- No additional fields or methods for now, as it inherits from the Inventory class.
-
-#### Customer Class:
-- Fields:
-    - customerName: Name of the customer.
-    - customerEmail: Email address of the customer.
-    - customerPhone: Phone number of the customer.
-- Methods: 
-    - placeOrder(): Places an order.
-    - makePayment(): Makes a payment.
-    - updateDetails(): Updates customer details.
 
 #### Product Structure:
 - Fields:
@@ -82,8 +63,7 @@ Retail Items (Subclass of Inventory):
     - price: Price of the product.
     - description: Description of the product.
 - Methods: 
-    - updateDetails(): Updates product details.
-    - displayDetails(): Displays product details.
+    - Constructor
 
 #### Transaction Structure:
 - Fields:
@@ -91,32 +71,4 @@ Retail Items (Subclass of Inventory):
     - paymentDetails: Details of the payment.
     - timestamp: Timestamp of the transaction.
 - Methods:
-    - generateTransactionRecord(): Generates a transaction record.
-
-#### Employee Structure:
-- Fields:
-    - employeeName: Name of the employee.
-    - role: Role of the employee.
-    - contactDetails: Contact details of the employee.
-- Methods:
-    - updateRole(): Updates the role of the employee.
-    - updateContactDetails(): Updates employee contact details.
-
-#### CustomerDetails Structure:
-- Fields:
-    - customerName: Name of the customer.
-    - contactDetails: Contact details of the customer.
-    - loyaltyPoints: Loyalty points of the customer.
-- Methods:
-    - updateDetails(): Updates customer details.
-    - trackLoyaltyPoints(): Tracks customer loyalty points.
-
-#### Inventory Structure:
-- Fields:
-    - itemName: Name of the item.
-    - quantity: Quantity of the item.
-    - category: Category of the item (Food/Drink or Retail).
-- Methods:
-    - updateQuantity(): Updates the quantity of an item.
-    - addNewItem(): Adds a new item to the inventory.
-    - removeItem(): Removes an item from the inventory.
+    - Constructor
