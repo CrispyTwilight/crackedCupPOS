@@ -1,0 +1,11 @@
+//Author: Hunter Kauffman
+//Date: 11/1/23
+//Desc: Take Out subclass for cracked Cup POS
+
+
+Class TakeOut Extends Order
+    Declare Private String cupType
+    Declare Private String label
+
+
+End Class

@@ -1,0 +1,9 @@
+//Author: Hunter Kauffman
+//Date: 11/1/23
+//Desc: In Store subclass for cracked Cup POS
+
+Class InStore Extends Order
+    Declare Private Integer tableNumber
+
+
+ENd Class

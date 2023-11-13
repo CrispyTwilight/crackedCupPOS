@@ -1,0 +1,22 @@
+//Author: Hunter Kauffman
+//Date: 11/1/23
+//Desc: Order class for cracked Cup POS
+
+Class Order
+    Declare Private String itemsOrdered
+    Declare Private Integer quantity
+    Declare Private String orderType
+    Declare Private Integer orderNum
+
+    Public Function calculateTotalCost()
+
+    End Function
+
+    Public Function addItem()
+        
+    End Function
+
+    Public Function removeItem()
+        
+    End Function
+End Class
