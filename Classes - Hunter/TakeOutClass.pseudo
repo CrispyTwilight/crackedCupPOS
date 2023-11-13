@@ -2,6 +2,7 @@
 //Date: 11/1/23
 //Desc: Take Out subclass for cracked Cup POS
 
+Import OrderClass.pseudo
 
 Class TakeOut Extends Order
     Declare Private String cupType

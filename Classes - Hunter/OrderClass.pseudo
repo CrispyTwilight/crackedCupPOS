@@ -9,15 +9,27 @@ Class Order
     Declare Private Integer orderNum
     Declare Private Integer count
 
+    Public Module Order(String ot = "In Store", Integer on = 01, Integer c = 0)
+        Set orderType = ot
+        Set orderNum = on
+        Set count = c
+    End Module
+
     Public Function calculateTotalCost()
-
-    End Function
-
-    Public Function addItem()
+        Declare Integer sum
         
+
+        Return sum
     End Function
 
-    Public Function removeItem()
-        
-    End Function
+    Public Module addItem(String item, Integer quantity)
+        Set itemsOrdered[count] = item
+        Set quantity[count] = quantity
+        Set count = count + 1
+    End Module
+
+    Public Module removeItem(Integer index)
+    Set itemsOrdered[index] = ""
+    Set quantity[index] = 0
+    End Module
 End Class

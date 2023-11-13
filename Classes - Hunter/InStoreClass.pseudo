@@ -2,6 +2,8 @@
 //Date: 11/1/23
 //Desc: In Store subclass for cracked Cup POS
 
+Import OrderClass.pseudo
+
 Class InStore Extends Order
     Declare Private Integer tableNumber
 
