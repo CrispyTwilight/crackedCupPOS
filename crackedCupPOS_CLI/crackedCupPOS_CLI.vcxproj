@@ -128,7 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="crackedCupPOS_CLI.cpp" />
+    <ClCompile Include="Order.cpp" />
+    <ClCompile Include="Order_InStore.cpp" />
+    <ClCompile Include="Order_TakeOut.cpp" />
+    <ClCompile Include="Payment.cpp" />
+    <ClCompile Include="Payment_Card.cpp" />
+    <ClCompile Include="Payment_Cash.cpp" />
     <ClCompile Include="Product.cpp" />
+    <ClCompile Include="Transaction.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

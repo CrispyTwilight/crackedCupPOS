@@ -1,0 +1,26 @@
+﻿  crackedCupPOS_CLI.cpp
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Product.cpp(8,16): error C2011: 'Product': 'struct' type redefinition
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Product.cpp(8,8): message : see declaration of 'Product'
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Order.cpp(11,13): error C2011: 'Order': 'class' type redefinition
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Order.cpp(11,7): message : see declaration of 'Order'
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Order_InStore.cpp(8,36): error C2504: 'Order': base class undefined
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Order_InStore.cpp(16,7): error C2614: 'Order_InStore': illegal member initialization: 'Order' is not a base or member
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Order_TakeOut.cpp(8,36): error C2504: 'Order': base class undefined
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Order_TakeOut.cpp(16,7): error C2614: 'Order_TakeOut': illegal member initialization: 'Order' is not a base or member
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Transaction.cpp(8,20): error C2011: 'Transaction': 'struct' type redefinition
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Transaction.cpp(8,8): message : see declaration of 'Transaction'
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Payment.cpp(9,15): error C2011: 'Payment': 'class' type redefinition
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Payment.cpp(9,7): message : see declaration of 'Payment'
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Payment_Cash.cpp(8,37): error C2504: 'Payment': base class undefined
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Payment_Card.cpp(8,37): error C2504: 'Payment': base class undefined
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\Payment_Card.cpp(18,4): error C2614: 'Payment_Card': illegal member initialization: 'Payment' is not a base or member
+C:\Users\16jon\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupPOS_CLI\crackedCupPOS_CLI.cpp(55,17): error C2079: 'transaction' uses undefined struct 'Transaction'
+  Order.cpp
+  Order_InStore.cpp
+  Order_TakeOut.cpp
+  Payment.cpp
+  Payment_Card.cpp
+  Payment_Cash.cpp
+  Product.cpp
+  Transaction.cpp
+  Generating Code...

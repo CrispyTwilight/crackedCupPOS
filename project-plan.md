@@ -3,72 +3,95 @@
 ## Overview
 Create a Point of Sale (PoS) object-oriented GUI desktop application for a the Cracked Cup coffee shop.
 
-## Goals
-
-
-## Tasks
-### GUI Pages
+## GUI Pages
 - Dashboard/home with metrics
     Daily sales, total gross sales, total orders
 - Process Order
 - Process Payment
 
-The GUI will be designed in C# amd implemented using WPF with XAML.<br>
-Data will be stored as text records in files and loaded as needed.
-The application will be designed will be in CLI to prototype.
+The GUI will be designed in Visual C# Windows Forms.<br>
+Data will be stored as CSV records in files and loaded as needed.
+The application will be designed will be as a C++ CLI  app to prototype.
 
-### Classes / Subclasses
-#### Order Class:
+## Classes / Subclasses
+### Order Class:
 - Fields:
-    - itemsOrdered: List of items in the order.
-    - quantity: Quantity of each item.
-    - orderType: Type of order (In Store or Take Out).
-    - orderNum: 
+    - orderID
+	- orderType
+	- orderStatus
+	- orderQuantity
+	- orderTotal
+	- Vector to store orderProducts
 - Methods:
-    - calculateTotalCost(): Calculates the total cost of the order.
-    - addItem(): Adds an item to the order.
-    - removeItem(): Removes an item from the order.
+    - calculateTotalCost()
+    - addItem()
+    - removeItem()
 
-- In Store (Subclass of Order):
-    - Fields:
-        - tableNumber: The table number for in-store orders.
-        - 
-
-- Take Out (Subclass of Order):
-    - No additional fields or methods for now, as it inherits from the Order class.
-        - cupType: 
-        - label:
-
-#### Payment Class:
+#### In Store (Subclass of Order):
 - Fields:
-    - paymentMethod: Method of payment (Cash or Card).
-    - amount: The amount paid.
+    - customerName
+    - tableNumber
 - Methods:
-    - processPayment(): Processes the payment.
-    - generateReceipt(): Generates a receipt for the payment.
+    - Constructor
+    - Getters/Setters
 
-- Cash (Subclass of Payment):
-    - change
-    - No additional fields or methods for now, as it inherits from the Payment class.
-
-- Card (Subclass of Payment):
-    - cardNum
-    - cardExp
-    - 
-    - No additional fields or methods for now, as it inherits from the Payment class.
-
-#### Product Structure:
+#### Take Out (Subclass of Order):
 - Fields:
-    - productName: Name of the product.
-    - price: Price of the product.
-    - description: Description of the product.
-- Methods: 
+    - customerName
+    - pickupTime
+- Methods:
+    - Constructor
+    - Getters/Setters
+
+### Product Structure:
+- Fields:
+    - productID;
+	- productName;
+	- productDescription;
+	- productPrice;
+	- productQuantity;
+- Methods:
     - Constructor
 
-#### Transaction Structure:
+### Payment Class:
 - Fields:
-    - orderDetails: Details of the order.
-    - paymentDetails: Details of the payment.
-    - timestamp: Timestamp of the transaction.
+    - Instance of transaction structure
+- Methods:
+    - Constructor
+    - Destructor
+    - Getters/Setters
+    - processPayment()
+    - processRefund()
+    - printReceipt()
+    - printRefundReceipt()
+
+#### Cash (Subclass of Payment):
+- Fields:
+    - amountTendered
+    - changeDue
+- Methods:
+    - Constructor
+    - Getters/Setters
+
+#### Card (Subclass of Payment):
+- Fields: 
+    - cardNumber
+    - expiryDate
+    - cardHolderName
+    - CVV
+- Methods:
+    - Constructor
+    - Getters/Setters
+
+### Transaction Structure:
+- Fields:
+    - orderID
+    - transactionID
+    - paymentTypeCode
+    - paymentStatusCode
+    - transactionAmount
+    - date
+    - time
+    - type
 - Methods:
     - Constructor
