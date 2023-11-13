@@ -17,7 +17,9 @@ Class Order
 
     Public Function calculateTotalCost()
         Declare Integer sum
-        
+        For index = 0 To 98
+            Switch
+        End For
 
         Return sum
     End Function
