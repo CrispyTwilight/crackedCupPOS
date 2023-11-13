@@ -9,6 +9,23 @@ Create a Point of Sale (PoS) object-oriented GUI desktop application for a the C
 - Process Order
 - Process Payment
 
+exitBtn
+orderBtn
+paymentBtn
+refreshBtn
+
+Payment:
+saveTxBtn
+printReceiptBtn
+calcChangeBtn
+
+changeDueLbl
+totalLbl
+subtotalLbl
+amtPaidLbl
+taxLbl
+
+
 The GUI will be designed in Visual C# Windows Forms.<br>
 Data will be stored as CSV records in files and loaded as needed.
 The application will be designed will be as a C++ CLI  app to prototype.

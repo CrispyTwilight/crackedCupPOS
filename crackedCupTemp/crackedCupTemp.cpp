@@ -28,15 +28,13 @@ struct Transaction {
 	int orderID;
 	int transactionID;
 	int paymentTypeCode;
-	int paymentStatusCode;
 	double transactionAmount;
 	std::string date;
 	std::string time;
-	std::string type;
 
 	// Constructor with default values and member initializer list
-	Transaction(int const& ordID = 0, int const& transID = 0, int const& payType = 0, int const& payStatus = 0, double const& transAmount = 0.0, std::string const& d = "", std::string const& t = "", std::string const& ty = "")
-		: orderID(ordID), transactionID(transID), paymentTypeCode(payType), paymentStatusCode(payStatus), transactionAmount(transAmount), date(d), time(t), type(ty)
+	Transaction(int const& ordID = 0, int const& transID = 0, int const& payType = 0, double const& transAmount = 0.0, std::string const& d = "", std::string const& t = "", std::string const& ty = "")
+		: orderID(ordID), transactionID(transID), paymentTypeCode(payType), transactionAmount(transAmount), date(d), time(t)
 	{}
 };
 
@@ -56,22 +54,18 @@ public:
 	// Getters
 	int getOrderID() const { return transaction.orderID; };
 	int getTransactionID() const { return transaction.transactionID; };
-	int getPaymentType() const { return transaction.paymentTypeCode; };
-	int getPaymentStatus() const { return transaction.paymentStatusCode; };
+	int getPaymentTypeCode() const { return transaction.paymentTypeCode; };
 	double getTransactionAmount() const { return transaction.transactionAmount; }
 	std::string getDate() const { return transaction.date; }
 	std::string getTime() const { return transaction.time; }
-	std::string getType() const { return transaction.type; }
 
 	// Setters
 	void setOrderID(int const& oID) { transaction.orderID = oID; }
 	void setTransactionID(int const& txID) { transaction.transactionID = txID; }
-	void setPaymentType(int const& pType) { transaction.paymentTypeCode = pType; }
-	void setPaymentStatus(int const& pStatus) { transaction.paymentStatusCode = pStatus; }
+	void setPaymentTypeCode(int const& pType) { transaction.paymentTypeCode = pType; }
 	void setTransactionAmount(double const& txAmount) { transaction.transactionAmount = txAmount; }
 	void setDate(std::string const& date) { transaction.date = date; }
 	void setTime(std::string const& time) { transaction.time = time; }
-	void setType(std::string const& type) { transaction.type = type; }
 
 	// Member functions
 	void processPayment() const {
@@ -267,12 +261,10 @@ void cardTxDriver() {
 	// Set values for the base Payment class
     card.setTransactionID(12345);
     card.setOrderID(67890);
-    card.setPaymentType(1);
-    card.setPaymentStatus(0);
+    card.setPaymentTypeCode(1);
     card.setTransactionAmount(15.00);
     card.setDate("2022-01-01");
     card.setTime("12:00:00");
-    card.setType("Card");
 
     // Use getters to print the details
     cout << "Card Number: " << card.getCardNumber() << "\n";
@@ -283,12 +275,10 @@ void cardTxDriver() {
 	// Print the details of the base Payment class
     cout << "Transaction ID: " << card.getTransactionID() << "\n";
     cout << "Order ID: " << card.getOrderID() << "\n";
-    cout << "Payment Type: " << card.getPaymentType() << "\n";
-    cout << "Payment Status: " << card.getPaymentStatus() << "\n";
+    cout << "Payment Type: " << card.getPaymentTypeCode() << "\n";
     cout << "Transaction Amount: " << card.getTransactionAmount() << "\n";
     cout << "Date: " << card.getDate() << "\n";
     cout << "Time: " << card.getTime() << "\n";
-    cout << "Type: " << card.getType() << "\n";
 
 	bool result = writeTransactionToFile(card);
 	if (result)
@@ -308,13 +298,10 @@ void cashTxDriver() {
     // Set values for the base Payment class
     cash.setTransactionID(12345);
     cash.setOrderID(67890);
-    cash.setPaymentType(1);
-    cash.setPaymentStatus(0);
+    cash.setPaymentTypeCode(1);
     cash.setTransactionAmount(15.00);
     cash.setDate("2022-01-01");
     cash.setTime("12:00:00");
-    cash.setType("Cash");
-
     // Use getters to print the details
     cout << "Amount Tendered: " << cash.getAmountTendered() << "\n";
     cout << "Change Due: " << cash.getChangeDue() << "\n";
@@ -322,12 +309,10 @@ void cashTxDriver() {
     // Print the details of the base Payment class
     cout << "Transaction ID: " << cash.getTransactionID() << "\n";
     cout << "Order ID: " << cash.getOrderID() << "\n";
-    cout << "Payment Type: " << cash.getPaymentType() << "\n";
-    cout << "Payment Status: " << cash.getPaymentStatus() << "\n";
+    cout << "Payment Type: " << cash.getPaymentTypeCode() << "\n";
     cout << "Transaction Amount: " << cash.getTransactionAmount() << "\n";
     cout << "Date: " << cash.getDate() << "\n";
     cout << "Time: " << cash.getTime() << "\n";
-    cout << "Type: " << cash.getType() << "\n";
 
 	bool result = writeTransactionToFile(cash);
 	if (result)
@@ -351,17 +336,15 @@ bool writeTransactionToFile(Payment& payment) {
 
     // If the file didn't exist, write the header line
     if (!fileExists) {
-        transactionFile << "Transaction ID,Order ID,Payment Type,Payment Status,Transaction Amount,Date,Time,Type,Amount Tendered,Change Due,Card Number,Expiry Date,Card Holder Name,CVV\n";
+        transactionFile << "Transaction ID,Order ID,Payment Type,Transaction Amount,Date,Time,Amount Tendered,Change Due,Card Number,Expiry Date,Card Holder Name,CVV\n";
     }
     // Write the common transaction details to the file
     transactionFile << payment.getTransactionID() << ","
                     << payment.getOrderID() << ","
-                    << payment.getPaymentType() << ","
-                    << payment.getPaymentStatus() << ","
+                    << payment.getPaymentTypeCode() << ","
                     << payment.getTransactionAmount() << ","
                     << payment.getDate() << ","
-                    << payment.getTime() << ","
-                    << payment.getType();
+                    << payment.getTime() << ",";
 
     // Check if the Payment object is a Payment_Cash object
     auto const* cash = dynamic_cast<Payment_Cash*>(&payment);
