@@ -8,5 +8,25 @@ Class TakeOut Extends Order
     Declare Private String cupType
     Declare Private String label
 
+    Public Module TakeOut(String ct, String L)
+        Call setCupType(ct)
+        Call setLabel(l)
+    End Module
+
+    Public Module setCupType(String ct)
+        Set cupType = ct
+    End Module
+
+    Public Module setLabel(String l)
+        Set label = l
+    End Module
+
+    Public Function getCupType()
+        Return cupType
+    End Function
+    
+    Public Function getLabel()
+        Return label
+    End Function
 
 End Class

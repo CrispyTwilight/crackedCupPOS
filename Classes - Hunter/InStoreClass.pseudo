@@ -7,5 +7,15 @@ Import OrderClass.pseudo
 Class InStore Extends Order
     Declare Private Integer tableNumber
 
+    Public Module InStore(Integer tn)
+        Call setTableNum(tn)
+    End Module
 
+    Public Module setTableNum(Integer tablenum)
+        Set tableNumber = tablenum
+    End Module
+
+    Public Function getTableNum()
+        Return tableNumber
+    End Function
 ENd Class
