@@ -1,0 +1,32 @@
+//Author: Hunter Kauffman
+//Date: 11/6/23
+//Desc: Take Out subclass for cracked Cup POS
+
+Import OrderClass.pseudo
+
+Class TakeOut Extends Order
+    Declare Private String customer Name
+    Declare Private String pickupTime
+
+    Public Module TakeOut(String cn, String pt)
+        Call setCustomerName(cn)
+        Call setPickupTime(pt)
+    End Module
+
+    Public Module setPickupTime(String pt)
+        Set pickupTime = pt
+    End Module
+
+    Public Module setCustomerName(String cn)
+        Set customerName = cn
+    End Module
+
+    Public Function getPickupTime()
+        Return pickupTime
+    End Function
+
+    Public Function getCustomerName()
+        Return customerName
+    End Function
+
+End Class
