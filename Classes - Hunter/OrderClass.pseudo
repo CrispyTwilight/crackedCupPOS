@@ -3,10 +3,11 @@
 //Desc: Order class for cracked Cup POS
 
 Class Order
-    Declare Private String itemsOrdered
-    Declare Private Integer quantity
+    Declare Private String itemsOrdered[99]
+    Declare Private Integer quantity[99]
     Declare Private String orderType
     Declare Private Integer orderNum
+    Declare Private Integer count
 
     Public Function calculateTotalCost()
 
