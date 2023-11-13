@@ -10,3 +10,16 @@ C:\Users\John\OneDrive - Iowa Lakes Community College\2 Programing Logic\cracked
 C:\Users\John\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.csproj.CoreCompileInputs.cache
 C:\Users\John\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.exe
 C:\Users\John\OneDrive - Iowa Lakes Community College\2 Programing Logic\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.pdb
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\bin\Debug\crackedCupWinFormsGUI.exe.config
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\bin\Debug\crackedCupWinFormsGUI.exe
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\bin\Debug\crackedCupWinFormsGUI.pdb
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.csproj.AssemblyReference.cache
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.Home.resources
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.Order.resources
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.Payment.resources
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.Properties.Resources.resources
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.csproj.GenerateResource.cache
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.csproj.CoreCompileInputs.cache
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.exe
+C:\Users\nukester1000\Desktop\CIS-125\crackedCupPOS\crackedCupWinFormsGUI\obj\Debug\crackedCupWinFormsGUI.pdb
