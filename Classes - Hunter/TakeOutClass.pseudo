@@ -1,32 +1,32 @@
 //Author: Hunter Kauffman
-//Date: 11/1/23
+//Date: 11/6/23
 //Desc: Take Out subclass for cracked Cup POS
 
 Import OrderClass.pseudo
 
 Class TakeOut Extends Order
-    Declare Private String cupType
-    Declare Private String label
+    Declare Private String customer Name
+    Declare Private String pickupTime
 
-    Public Module TakeOut(String ct, String L)
-        Call setCupType(ct)
-        Call setLabel(l)
+    Public Module TakeOut(String cn, String pt)
+        Call setCustomerName(cn)
+        Call setPickupTime(pt)
     End Module
 
-    Public Module setCupType(String ct)
-        Set cupType = ct
+    Public Module setPickupTime(String pt)
+        Set pickupTime = pt
     End Module
 
-    Public Module setLabel(String l)
-        Set label = l
+    Public Module setCustomerName(String cn)
+        Set customerName = cn
     End Module
 
-    Public Function getCupType()
-        Return cupType
+    Public Function getPickupTime()
+        Return pickupTime
     End Function
-    
-    Public Function getLabel()
-        Return label
+
+    Public Function getCustomerName()
+        Return customerName
     End Function
 
 End Class

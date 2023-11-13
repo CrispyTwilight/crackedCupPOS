@@ -1,0 +1,19 @@
+//Author: Hunter Kauffman
+//Date: 11/6/23
+//Desc: Product Structure for cracked Cup POS
+
+Structure Product
+    Declare Integer productID
+    Declare String productName
+    Declare String productDescription
+    Declare Real productPrice
+    Declare Integer productQuantity
+
+    Module Product(Integet proID = 0, String proName = "", String proDesc = "", Real proPrice = 0.0, Integer proQuantity = 0)
+        Set productID = proID
+        Set productName = proName
+        Set productDescription = proDesc
+        Set productPrice = proPrice
+        Set productQuantity = proQuantity
+    End Module
+End Structure

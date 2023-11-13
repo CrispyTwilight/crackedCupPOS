@@ -1,37 +1,38 @@
 //Author: Hunter Kauffman
-//Date: 11/1/23
+//Date: 11/6/23
 //Desc: Order class for cracked Cup POS
 
-Class Order
-    Declare Private String itemsOrdered[99]
-    Declare Private Integer quantity[99]
-    Declare Private String orderType
-    Declare Private Integer orderNum
-    Declare Private Integer count
+Import ProductStruc.pseudo
 
-    Public Module Order(String ot = "In Store", Integer on = 01, Integer c = 0)
+Class Order
+    Declare Private Integer orderID
+    Declare Private Integer orderType
+    Declare Private Integer orderStatus
+    Declare Private Integer orderQuantity
+    Declare Private Real orderTotal
+    Declare Private Vector<Product> orderProducts
+
+    Public Module Order(Integer oID = 0, Integer ot = 0, Integer os 0, Integer oq = 0, Real oTotal = 0.0)
+        Set orderID = oID
         Set orderType = ot
-        Set orderNum = on
-        Set count = c
+        Set orderStatus = os
+        Set orderQuantity = oq
+        Set order = oTotal
     End Module
 
     Public Function calculateTotalCost()
-        Declare Integer sum
-        For index = 0 To 98
-            Switch
+        Declare Product product
+        For Each product In orderProducts
+            Set orderTotal = orderTotal + Product.productPrice
         End For
-
-        Return sum
+        Return orderTotal
     End Function
 
-    Public Module addItem(String item, Integer quantity)
-        Set itemsOrdered[count] = item
-        Set quantity[count] = quantity
-        Set count = count + 1
+    Public Module addItem(Product pro)
+        Set orderProducts.push_back(pro)
     End Module
 
-    Public Module removeItem(Integer index)
-    Set itemsOrdered[index] = ""
-    Set quantity[index] = 0
+    Public Module removeItem(Product pro)
+        Set orderProducts.pop_back()
     End Module
 End Class
