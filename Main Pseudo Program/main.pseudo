@@ -1,0 +1,230 @@
+// Auth: John O'Neal
+// Date: 11/13/2023
+// Desc: Main program for the Craked Cup POS
+
+// Main Form Auth: John O'Neal
+Form homeFrm
+    Module Init()
+        Import ProductStruc.pseudo
+        Import InStoreClass.pseudo
+        Import OrderClass.pseudo
+        Import TakeOutClass.pseudo
+
+        Import Transaction.pseudo
+        Import Payment.pseudo
+        Import Payment_Card.pseudo
+        Import Payment_Cash.pseudo
+    End Module
+
+    Module orderBtn_Click()
+        // Open the order form
+        Call orderFrm.Show()
+    End Module
+
+    Module paymentBtn_Click()
+        // Open the payment form
+        Call paymentFrm.Show()
+    End Module
+
+    Module exitBtn_Click()
+        Close
+    End Module
+End Form
+
+// Order Form
+Form orderFrm
+
+
+End Form
+
+// Payment Form Auth: John O'Neal
+Form paymentFrm
+    // Initiazation Module
+    Module Init()
+        // Initialize the nextOrderID and nextTransactionID to 0. These are static variables declared in the Transaction class.
+        Set Integer Transaction::nextOrderID = 0
+        Set Integer Transaction::nextTransactionID = 0
+
+        // Initialize
+        Declare vector<Payment> transactions;
+	    Declare Payment payment;
+
+        // Initialize the form by calling the readTransactionFromFile(). This will load the transaction data from the file into the transactionList so the user can search for an order and process a payment.
+        Call payment.readTransactionFromFile(transactions);
+
+        // Show an instruction message box
+        messageBox_Show("Please enter an order ID, then click the search order button to search for an order and process a payment.")
+    End Module
+
+    // Search Order Button Click Module
+    Module searchOrderBtn_Click()
+        // Get the orderID from the orderIDTxt text box
+        Declare Integer orderID
+        Set Integer orderID = orderIDTxt.Text
+
+        // Call the searchTransactionByOrderID() function to search for the orderID in the transactionList
+        Call payment.searchTransactionByOrderID(orderID, transactions)
+        // Error checking is in the function
+    End Module
+
+    // Payment Type Group Box Click Module
+    Module pmtTypeGroupBox_Click()
+        If cashRdo.Checked = true Then
+            Module cashRdo_Click()
+                // Enable the cash group box
+                Set cashGroupBox.Visible = true
+                Set cardGroupBox.Visible = false
+            End Module
+        Else If cardRdo.Checked = true 
+            Module creditCardRdo_Click()
+                // Enable the card group box
+                Set cardGroupBox.Visible = true
+                Set cashGroupBox.Visible = false
+            End Module
+        End If
+    End Module
+    
+    // Process Payment Button Click Module
+    Module processPaymentBtn_Click()
+        If cashRdo.Checked = true Then
+            Declare Payment_Cash cash;
+            Call cash.setDate(currentdate); // Current date and time are just place holders for the pesudo code
+            Call cash.setTime(currenttime);
+            Call cash.setSubtotal(stringToInteger(subtotalTb.Text));
+            Call cash.setTax();
+            Call cash.setTotalCost();
+            Call cash.setAmountTendered(stringToReal(amtTenderedTb.Text));
+            Call cash.setChangeDue();
+            // Call the processPayment method for cash
+            Call cash.processPayment();
+        
+        Else If cardRdo.Checked = true
+            Declare Payment_Card card;
+            Call card.setDate(currentdate);
+            Call card.setTime(currenttime);
+            Call card.setSubtotal(stringToInteger(subtotalTb.Text));
+            Call card.setTax();
+            Call card.setTotalCost();
+            Call card.setCardNumber(cardNumberTb.Text);
+            Call card.setExpiryDate(expiryDateTb.Text);
+            Call card.setCardHolderName(cardHolderNameTb.Text);
+            Call card.setCVV(cvvTb.Text);
+            // Call the processPayment method for cards
+            Call card.processPayment();
+        End If  
+    End Module
+
+    // Process Refund Button Click Module
+    Module processRefundBtn_Click()
+        If cashRdo.Checked = true Then
+            Declare Payment_Cash cash;
+            Call cash.setDate(currentdate);
+            Call cash.setTime(currenttime);
+            Call cash.setSubtotal(stringToInteger(subtotalTb.Text));
+            Call cash.setTax();
+            Call cash.setTotalCost();
+            Call cash.setAmountTendered(stringToReal(amtTenderedTb.Text));
+            Call cash.setChangeDue();
+            // Call the processRefund method for cash
+            Call cash.processRefund();
+        
+        Else If cardRdo.Checked = true
+            Declare Payment_Card card;
+            Call card.setDate(currentdate);
+            Call card.setTime(currenttime);
+            Call card.setSubtotal(stringToInteger(subtotalTb.Text));
+            Call card.setTax();
+            Call card.setTotalCost();
+            Call card.setCardNumber(cardNumberTb.Text);
+            Call card.setExpiryDate(expiryDateTb.Text);
+            Call card.setCardHolderName(cardHolderNameTb.Text);
+            Call card.setCVV(cvvTb.Text);
+            // Call the processRefund method for cards
+            Call card.processRefund();
+        End If  
+    End Module
+
+    // Print Receipt Button Click Module
+    Module printReceiptBtn_Click()
+        If cashRdo.Checked = true Then
+            Declare Payment_Cash cash;
+            Call cash.setDate(currentdate);
+            Call cash.setTime(currenttime);
+            Call cash.setSubtotal(stringToInteger(subtotalTb.Text));
+            Call cash.setTax();
+            Call cash.setTotalCost();
+            Call cash.setAmountTendered(stringToReal(amtTenderedTb.Text));
+            Call cash.setChangeDue();
+            // Call the printReceipt method for cash
+            Call cash.printReceipt();
+        
+        Else If cardRdo.Checked = true
+            Declare Payment_Card card;
+            Call card.setDate(currentdate);
+            Call card.setTime(currenttime);
+            Call card.setSubtotal(stringToInteger(subtotalTb.Text));
+            Call card.setTax();
+            Call card.setTotalCost();
+            Call card.setCardNumber(cardNumberTb.Text);
+            Call card.setExpiryDate(expiryDateTb.Text);
+            Call card.setCardHolderName(cardHolderNameTb.Text);
+            Call card.setCVV(cvvTb.Text);
+            // Call the printReceipt method for cards
+            Call card.printReceipt();
+        End If  
+    End Module
+
+    // Save Transaction Button Click Module
+    Module saveTransactionBtn_Click()
+        If cashRdo.Checked = true Then
+            Declare Payment_Cash cash;
+            Call cash.setDate(currentdate);
+            Call cash.setTime(currenttime);
+            Call cash.setSubtotal(stringToInteger(subtotalTb.Text));
+            Call cash.setTax();
+            Call cash.setTotalCost();
+            Call cash.setAmountTendered(stringToReal(amtTenderedTb.Text));
+            Call cash.setChangeDue();
+            // Call the writeTransactionToFile method for cash
+            Call cash.writeTransactionToFile();
+
+        Else If cardRdo.Checked = true
+            Declare Payment_Card card;
+            Call card.setDate(currentdate);
+            Call card.setTime(currenttime);
+            Call card.setSubtotal(stringToInteger(subtotalTb.Text));
+            Call card.setTax();
+            Call card.setTotalCost();
+            Call card.setCardNumber(cardNumberTb.Text);
+            Call card.setExpiryDate(expiryDateTb.Text);
+            Call card.setCardHolderName(cardHolderNameTb.Text);
+            Call card.setCVV(cvvTb.Text);
+            // Call the writeTransactionToFile method for cards
+            Call card.writeTransactionToFile();
+        End If  
+    End Module
+
+    // Clear Button Click Module
+    Module clearBtn_Click()
+        // Clear the text boxes with empty strings
+        Set orderIDTb.Text = "";
+        Set transactionIDTb.Text = "";
+        Set dateTb.Text = "";
+        Set timeTb.Text = "";
+        Set subtotalTb.Text = "";
+        Set taxTb.Text = "";
+        Set totalCostTb.Text = "";
+        Set amtTenderedTb.Text = "";
+        Set changeDueTb.Text = "";
+        Set cardNumberTb.Text = "";
+        Set expiryDateTb.Text = "";
+        Set cardHolderNameTb.Text = "";
+        Set cvvTb.Text = "";
+    End Module
+
+    // Exit to Home Button Click Module
+    Module exitToHomeBtn_Click()
+        // Close the payment form and open the home form
+        Call homeFrm.Show()
+    End Module
+End Form
