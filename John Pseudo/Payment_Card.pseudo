@@ -1,0 +1,99 @@
+// Auth: John O'Neal
+// Date: 11/13/2023
+// Desc: Payment_Card Subclass
+
+Include Payment.pseudo class
+
+// This class extends the Payment class for card payments.
+
+Class Payment_Card extends Payment
+    Declare String cardNumber
+    Declare String expiryDate
+    Declare String cardHolderName
+    Declare String CVV
+
+    // Constructor
+    Method Payment_Card(String cardNum = "", String expDate = "", String cardHolder = "", String cvv = "")
+        Call Payment() // parent constructor
+        Set cardNumber = cardNum
+        Set expiryDate = expDate
+        Set cardHolderName = cardHolder
+        Set CVV = cvv
+    End Constructor
+
+    // Getters
+    Public Constant Function String getCardNumber()
+        Return cardNumber
+    End Function
+
+    Public Constant Function String getExpiryDate()
+        Return expiryDate
+    End Function
+
+    Public Constant Function String getCardHolderName()
+        Return cardHolderName
+    End Function
+
+    Public Constant Function String getCVV()
+        Return CVV
+    End Function
+
+    // Setters
+    Public Module setCardNumber(String cardNum)
+        Set cardNumber = cardNum
+    End Module
+
+    Public Module setExpiryDate(String expDate)
+        Set expiryDate = expDate
+    End Module
+
+    Public Module setCardHolderName(String cardHolder)
+        Set cardHolderName = cardHolder
+    End Module
+
+    Public Module setCVV(String cvv)
+        Set CVV = cvv
+    End Module
+
+    // Member Functions
+    Public Module processPayment()
+        If cardNumber == "" OR expiryDate == "" OR cardHolderName == "" OR CVV == "" Then
+            messageBox("Invalid card information. Payment failed.")
+            Return
+        End If
+
+        // Update the payment info specific to card payments
+        Call setPaymentStatusCode(1);  // Set to 1 to indicate payment is successful
+		Call setPaymentTypeCode(2); // Set to 2 to indicate payment is a card payment
+        messageBox.Show("Payment successful.")
+    End Module
+
+    Public Module printReceipt() overrides Parent printReceipt()
+        // Call the superclass's printReceipt function
+        Call Parent printReceipt()
+        // Show the card-specific details
+        messageBox.Show("Card Number: ", Call getCardNumber(),
+                        "Expiry Date: ", Call getExpiryDate(),
+                        "Card Holder Name: ", Call getCardHolderName(),
+                        "CVV: ", Call getCVV())
+    End Module
+
+    Public Module writeTransactionToFile() overrides Parent writeTransactionToFile()
+        // Call the superclass's writeTransactionToFile function
+        Call Parent writeTransactionToFile()
+        // Open the file in append mode
+        Declare OutputFile AppendMode transactionFile
+        Open transactionFile "transactions.csv"
+        // If the file could not be opened, show an error message and return
+        If NOT transactionFile Then
+            messageBox.Show("Error opening file.")
+            Return
+        End If
+        WriteLine ",", "," // Write two empty fields to the file
+                  Call getCardNumber(), "," // Write the card number to the file
+                  Call getExpiryDate(), "," // Write the expiry date to the file
+                  Call getCardHolderName(), "," // Write the card holder name to the file
+                  Call getCVV() // Write the CVV to the file
+        Close transactionFile
+    End Module
+End Class

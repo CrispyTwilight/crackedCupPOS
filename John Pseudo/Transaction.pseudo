@@ -1,0 +1,33 @@
+// Auth: John O'Neal
+// Date: 11/13/2023
+// Desc: Transaction Structure
+
+// This struct is used to store transaction information.
+Structure Transaction
+    Declare Integer orderID
+    Declare Integer transactionID
+    Declare Integer paymentTypeCode
+    Declare Integer paymentStatusCode
+    Declare Real subtotal
+    Declare Real tax
+    Declare Real totalCost
+    Declare String date
+    Declare String time
+    Declare Static Integer nextOrderID // Static variable to ensure unique orderID
+    Declare Static Integer nextTransactionID // Static variable to ensure unique transactionID
+
+	// Constructor
+    Transaction()
+        Set orderID = nextOrderID
+        Set nextOrderID = nextOrderID + 1 // Increment nextOrderID
+        Set transactionID = nextTransactionID
+        Set nextTransactionID = nextTransactionID + 1 // Increment nextTransactionID
+        Set paymentTypeCode = 0
+        Set paymentStatusCode = 0
+        Set subtotal = 0.0
+        Set tax = 0.0
+        Set totalCost = 0.0
+        Set date = ""
+        Set time = ""
+    End Constructor
+End Structure
