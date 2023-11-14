@@ -90,7 +90,7 @@ Class Payment_Card extends Payment
             Return
         End If
         WriteLine ",", "," // Write two empty fields to the file
-                  Call getCardNumber(), "," // Write the card number to the file
+                  Call encrypt(getCardNumber()), "," // Write the card number to the file as an encrypted string
                   Call getExpiryDate(), "," // Write the expiry date to the file
                   Call getCardHolderName(), "," // Write the card holder name to the file
                   Call getCVV() // Write the CVV to the file

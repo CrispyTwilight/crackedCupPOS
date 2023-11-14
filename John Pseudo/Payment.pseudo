@@ -15,10 +15,10 @@ Class Payment
         transaction(transactionID, orderID, paymentTypeCode, paymentStatusCode, subtotal, tax, totalCost, date, time)
     End Constructor
 
-    // Deconstructor
+    // Destructor
     Public Module ~Payment
-        // Default deconstructor
-    End Deconstructor
+        // Default destructor
+    End Destructor
 
     // Getters
     Public Constant Function getOrderID()
