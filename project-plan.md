@@ -14,16 +14,53 @@ orderBtn
 paymentBtn
 refreshBtn
 
-Payment:
-saveTxBtn
-printReceiptBtn
-calcChangeBtn
+### Payment Page:
+Title:<br>
+titleLbl<br>
 
-changeDueLbl
-totalLbl
-subtotalLbl
-amtPaidLbl
-taxLbl
+Main<br>
+orderIDLbl<br>
+transactionIDLbl<br>
+dateLbl<br>
+timeLbl<br>
+
+orderIDTb<br>
+transactionIDTb<br>
+dateTb<br>
+timeTb<br>
+
+cashGb<br>
+amountTenderedLbl<br>
+changeDueLbl<br>
+
+amountTenderedTb<br>
+changeDueTb<br>
+
+cardGb<br>
+cardNumberLbl<br>
+expiryDateLbl<br>
+cardholderNameLbl<br>
+cvvLbl<br>
+
+cardNumberTb<br>
+expiryDateTb<br>
+cardholderNameTb<br>
+cvvTb<br>
+
+subtotalLbl<br>
+taxLbl<br>
+totalLbl<br>
+amountPaidLbl<br>
+
+subtotalTb<br>
+taxTb<br>
+totalTb<br>
+amountPaidTb<br>
+
+processPaymentBtn<br>
+processRefundBtn<br>
+calculateChangeBtn<br>
+printReceiptBtn<br>
 
 
 The GUI will be designed in Visual C# Windows Forms.<br>

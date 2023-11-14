@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace crackedCupWinFormsGUI
 {
-    public partial class Payment : Form
+    public partial class paymentFrm : Form
     {
-        public Payment()
+        public paymentFrm()
         {
             InitializeComponent();
         }

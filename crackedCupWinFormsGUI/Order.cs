@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace crackedCupWinFormsGUI
 {
-    public partial class Order : Form
+    public partial class orderFrm : Form
     {
-        public Order()
+        public orderFrm()
         {
             InitializeComponent();
         }
