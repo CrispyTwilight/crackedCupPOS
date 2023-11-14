@@ -1,10 +1,11 @@
 // Auth: John O'Neal
 // Date: 11/13/2023
-// Desc: Main program for the Craked Cup POS
+// Desc: Main program for the Cracked Cup POS
 
 // Main Form Auth: John O'Neal
 Form homeFrm
     Module Init()
+        // Import all the classes and structres
         Import ProductStruc.pseudo
         Import InStoreClass.pseudo
         Import OrderClass.pseudo
@@ -39,7 +40,7 @@ End Form
 
 // Payment Form Auth: John O'Neal
 Form paymentFrm
-    // Initiazation Module
+    // Initialization Module
     Module Init()
         // Initialize the nextOrderID and nextTransactionID to 0. These are static variables declared in the Transaction class.
         Set Integer Transaction::nextOrderID = 0
@@ -53,7 +54,7 @@ Form paymentFrm
         Call payment.readTransactionFromFile(transactions);
 
         // Show an instruction message box
-        messageBox_Show("Please enter an order ID, then click the search order button to search for an order and process a payment.")
+        messageBox_Show("Please enter an order ID, then click the search order button to search for an order and process a payment. You can also enter all details manually.")
     End Module
 
     // Search Order Button Click Module
@@ -80,7 +81,7 @@ Form paymentFrm
                 // Enable the card group box
                 Set cardGroupBox.Visible = true
                 Set cashGroupBox.Visible = false
-            End Module
+            End Module 
         End If
     End Module
     
@@ -88,8 +89,8 @@ Form paymentFrm
     Module processPaymentBtn_Click()
         If cashRdo.Checked = true Then
             Declare Payment_Cash cash;
-            Call cash.setDate(currentdate); // Current date and time are just place holders for the pesudo code
-            Call cash.setTime(currenttime);
+            Call cash.setDate(currentDate); // Current date and time are just place holders for the pseudo code
+            Call cash.setTime(currentTime);
             Call cash.setSubtotal(stringToInteger(subtotalTb.Text));
             Call cash.setTax();
             Call cash.setTotalCost();
@@ -100,8 +101,8 @@ Form paymentFrm
         
         Else If cardRdo.Checked = true
             Declare Payment_Card card;
-            Call card.setDate(currentdate);
-            Call card.setTime(currenttime);
+            Call card.setDate(currentDate);
+            Call card.setTime(currentTime);
             Call card.setSubtotal(stringToInteger(subtotalTb.Text));
             Call card.setTax();
             Call card.setTotalCost();
@@ -118,8 +119,8 @@ Form paymentFrm
     Module processRefundBtn_Click()
         If cashRdo.Checked = true Then
             Declare Payment_Cash cash;
-            Call cash.setDate(currentdate);
-            Call cash.setTime(currenttime);
+            Call cash.setDate(currentDate);
+            Call cash.setTime(currentTime);
             Call cash.setSubtotal(stringToInteger(subtotalTb.Text));
             Call cash.setTax();
             Call cash.setTotalCost();
@@ -130,8 +131,8 @@ Form paymentFrm
         
         Else If cardRdo.Checked = true
             Declare Payment_Card card;
-            Call card.setDate(currentdate);
-            Call card.setTime(currenttime);
+            Call card.setDate(currentDate);
+            Call card.setTime(currentTime);
             Call card.setSubtotal(stringToInteger(subtotalTb.Text));
             Call card.setTax();
             Call card.setTotalCost();
@@ -148,8 +149,8 @@ Form paymentFrm
     Module printReceiptBtn_Click()
         If cashRdo.Checked = true Then
             Declare Payment_Cash cash;
-            Call cash.setDate(currentdate);
-            Call cash.setTime(currenttime);
+            Call cash.setDate(currentDate);
+            Call cash.setTime(currentTime);
             Call cash.setSubtotal(stringToInteger(subtotalTb.Text));
             Call cash.setTax();
             Call cash.setTotalCost();
@@ -160,8 +161,8 @@ Form paymentFrm
         
         Else If cardRdo.Checked = true
             Declare Payment_Card card;
-            Call card.setDate(currentdate);
-            Call card.setTime(currenttime);
+            Call card.setDate(currentDate);
+            Call card.setTime(currentTime);
             Call card.setSubtotal(stringToInteger(subtotalTb.Text));
             Call card.setTax();
             Call card.setTotalCost();
@@ -178,8 +179,8 @@ Form paymentFrm
     Module saveTransactionBtn_Click()
         If cashRdo.Checked = true Then
             Declare Payment_Cash cash;
-            Call cash.setDate(currentdate);
-            Call cash.setTime(currenttime);
+            Call cash.setDate(currentDate);
+            Call cash.setTime(currentTime);
             Call cash.setSubtotal(stringToInteger(subtotalTb.Text));
             Call cash.setTax();
             Call cash.setTotalCost();
@@ -190,8 +191,8 @@ Form paymentFrm
 
         Else If cardRdo.Checked = true
             Declare Payment_Card card;
-            Call card.setDate(currentdate);
-            Call card.setTime(currenttime);
+            Call card.setDate(currentDate);
+            Call card.setTime(currentTime);
             Call card.setSubtotal(stringToInteger(subtotalTb.Text));
             Call card.setTax();
             Call card.setTotalCost();

@@ -15,7 +15,6 @@ Some requirements:
 - All classes must include fields and methods.
 - You must sketch out a user interface. I don't expect you to be artists, but your work must be understandable and professional. Use straight edges and compasses when appropriate. Make these to scale as best you can. I should see at least several different forms, where each member has contributed equally.
 - The previous point mandates that the application be event-driven!
-- Those are the only hard requirements. If anyone edits someone else's work, ensure that it is properly referenced/noted.
 
 Those are the only hard requirements. If anyone edits someone else's work, ensure that it is properly referenced/noted.
 

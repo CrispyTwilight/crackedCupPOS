@@ -1,4 +1,3 @@
-
 # Naming Conventions
 These are the GitHub naming conventions used within the project.
 

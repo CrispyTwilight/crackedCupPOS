@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(paymentFrm));
             this.printReceiptBtn = new System.Windows.Forms.Button();
-            this.saveTxBtn = new System.Windows.Forms.Button();
-            this.titleLbl = new System.Windows.Forms.Label();
-            this.pmtTypeGb = new System.Windows.Forms.GroupBox();
-            this.CardRbtn = new System.Windows.Forms.RadioButton();
-            this.cashRbtn = new System.Windows.Forms.RadioButton();
-            this.cashGb = new System.Windows.Forms.GroupBox();
+            this.saveTransactionBtn = new System.Windows.Forms.Button();
+            this.paymentTitleLbl = new System.Windows.Forms.Label();
+            this.pmtTypeGroupBox = new System.Windows.Forms.GroupBox();
+            this.cardRdo = new System.Windows.Forms.RadioButton();
+            this.cashRdo = new System.Windows.Forms.RadioButton();
+            this.cashGroupBox = new System.Windows.Forms.GroupBox();
             this.changeDueTb = new System.Windows.Forms.TextBox();
             this.amountTenderedTb = new System.Windows.Forms.TextBox();
             this.changeDueLbl = new System.Windows.Forms.Label();
             this.amountTenderedLbl = new System.Windows.Forms.Label();
-            this.cardGb = new System.Windows.Forms.GroupBox();
+            this.cardGroupBox = new System.Windows.Forms.GroupBox();
             this.cvvTb = new System.Windows.Forms.TextBox();
             this.cardholderNameTb = new System.Windows.Forms.TextBox();
             this.expiryDateTb = new System.Windows.Forms.TextBox();
@@ -49,7 +49,7 @@
             this.cardholderNameLbl = new System.Windows.Forms.Label();
             this.expiryDateLbl = new System.Windows.Forms.Label();
             this.cardNumberLbl = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.orderDetailPanel = new System.Windows.Forms.Panel();
             this.timeTb = new System.Windows.Forms.TextBox();
             this.dateTb = new System.Windows.Forms.TextBox();
             this.transactionIDTb = new System.Windows.Forms.TextBox();
@@ -58,7 +58,7 @@
             this.dateLbl = new System.Windows.Forms.Label();
             this.transactionIDLbl = new System.Windows.Forms.Label();
             this.orderIDLbl = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.costDetailPanel = new System.Windows.Forms.Panel();
             this.totalTb = new System.Windows.Forms.TextBox();
             this.taxTb = new System.Windows.Forms.TextBox();
             this.subtotalTb = new System.Windows.Forms.TextBox();
@@ -70,11 +70,11 @@
             this.searchOrderBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.pmtTypeGb.SuspendLayout();
-            this.cashGb.SuspendLayout();
-            this.cardGb.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pmtTypeGroupBox.SuspendLayout();
+            this.cashGroupBox.SuspendLayout();
+            this.cardGroupBox.SuspendLayout();
+            this.orderDetailPanel.SuspendLayout();
+            this.costDetailPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // printReceiptBtn
@@ -88,76 +88,76 @@
             this.printReceiptBtn.Text = "Print &Receipt";
             this.printReceiptBtn.UseVisualStyleBackColor = true;
             // 
-            // saveTxBtn
+            // saveTransactionBtn
             // 
-            this.saveTxBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.saveTxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveTxBtn.Location = new System.Drawing.Point(325, 279);
-            this.saveTxBtn.Name = "saveTxBtn";
-            this.saveTxBtn.Size = new System.Drawing.Size(125, 30);
-            this.saveTxBtn.TabIndex = 3;
-            this.saveTxBtn.Text = "&Save Transaction";
-            this.saveTxBtn.UseVisualStyleBackColor = true;
+            this.saveTransactionBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.saveTransactionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveTransactionBtn.Location = new System.Drawing.Point(325, 279);
+            this.saveTransactionBtn.Name = "saveTransactionBtn";
+            this.saveTransactionBtn.Size = new System.Drawing.Size(125, 30);
+            this.saveTransactionBtn.TabIndex = 3;
+            this.saveTransactionBtn.Text = "&Save Transaction";
+            this.saveTransactionBtn.UseVisualStyleBackColor = true;
             // 
-            // titleLbl
+            // paymentTitleLbl
             // 
-            this.titleLbl.AutoSize = true;
-            this.titleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLbl.Location = new System.Drawing.Point(14, 9);
-            this.titleLbl.Name = "titleLbl";
-            this.titleLbl.Size = new System.Drawing.Size(106, 29);
-            this.titleLbl.TabIndex = 8;
-            this.titleLbl.Text = "Payment";
+            this.paymentTitleLbl.AutoSize = true;
+            this.paymentTitleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentTitleLbl.Location = new System.Drawing.Point(14, 9);
+            this.paymentTitleLbl.Name = "paymentTitleLbl";
+            this.paymentTitleLbl.Size = new System.Drawing.Size(106, 29);
+            this.paymentTitleLbl.TabIndex = 8;
+            this.paymentTitleLbl.Text = "Payment";
             // 
-            // pmtTypeGb
+            // pmtTypeGroupBox
             // 
-            this.pmtTypeGb.Controls.Add(this.CardRbtn);
-            this.pmtTypeGb.Controls.Add(this.cashRbtn);
-            this.pmtTypeGb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pmtTypeGb.Location = new System.Drawing.Point(316, 42);
-            this.pmtTypeGb.Name = "pmtTypeGb";
-            this.pmtTypeGb.Size = new System.Drawing.Size(153, 83);
-            this.pmtTypeGb.TabIndex = 13;
-            this.pmtTypeGb.TabStop = false;
-            this.pmtTypeGb.Text = "Select Payment Type:";
+            this.pmtTypeGroupBox.Controls.Add(this.cardRdo);
+            this.pmtTypeGroupBox.Controls.Add(this.cashRdo);
+            this.pmtTypeGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pmtTypeGroupBox.Location = new System.Drawing.Point(316, 42);
+            this.pmtTypeGroupBox.Name = "pmtTypeGroupBox";
+            this.pmtTypeGroupBox.Size = new System.Drawing.Size(153, 83);
+            this.pmtTypeGroupBox.TabIndex = 13;
+            this.pmtTypeGroupBox.TabStop = false;
+            this.pmtTypeGroupBox.Text = "Select Payment Type:";
             // 
-            // CardRbtn
+            // cardRdo
             // 
-            this.CardRbtn.AutoSize = true;
-            this.CardRbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CardRbtn.Location = new System.Drawing.Point(48, 47);
-            this.CardRbtn.Name = "CardRbtn";
-            this.CardRbtn.Size = new System.Drawing.Size(54, 20);
-            this.CardRbtn.TabIndex = 1;
-            this.CardRbtn.TabStop = true;
-            this.CardRbtn.Text = "Card";
-            this.CardRbtn.UseVisualStyleBackColor = true;
+            this.cardRdo.AutoSize = true;
+            this.cardRdo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardRdo.Location = new System.Drawing.Point(48, 47);
+            this.cardRdo.Name = "cardRdo";
+            this.cardRdo.Size = new System.Drawing.Size(54, 20);
+            this.cardRdo.TabIndex = 1;
+            this.cardRdo.TabStop = true;
+            this.cardRdo.Text = "Card";
+            this.cardRdo.UseVisualStyleBackColor = true;
             // 
-            // cashRbtn
+            // cashRdo
             // 
-            this.cashRbtn.AutoSize = true;
-            this.cashRbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cashRbtn.Location = new System.Drawing.Point(48, 21);
-            this.cashRbtn.Name = "cashRbtn";
-            this.cashRbtn.Size = new System.Drawing.Size(56, 20);
-            this.cashRbtn.TabIndex = 0;
-            this.cashRbtn.TabStop = true;
-            this.cashRbtn.Text = "Cash";
-            this.cashRbtn.UseVisualStyleBackColor = true;
+            this.cashRdo.AutoSize = true;
+            this.cashRdo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashRdo.Location = new System.Drawing.Point(48, 21);
+            this.cashRdo.Name = "cashRdo";
+            this.cashRdo.Size = new System.Drawing.Size(56, 20);
+            this.cashRdo.TabIndex = 0;
+            this.cashRdo.TabStop = true;
+            this.cashRdo.Text = "Cash";
+            this.cashRdo.UseVisualStyleBackColor = true;
             // 
-            // cashGb
+            // cashGroupBox
             // 
-            this.cashGb.Controls.Add(this.changeDueTb);
-            this.cashGb.Controls.Add(this.amountTenderedTb);
-            this.cashGb.Controls.Add(this.changeDueLbl);
-            this.cashGb.Controls.Add(this.amountTenderedLbl);
-            this.cashGb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cashGb.Location = new System.Drawing.Point(19, 296);
-            this.cashGb.Name = "cashGb";
-            this.cashGb.Size = new System.Drawing.Size(288, 83);
-            this.cashGb.TabIndex = 14;
-            this.cashGb.TabStop = false;
-            this.cashGb.Text = "Cash Payment Details";
+            this.cashGroupBox.Controls.Add(this.changeDueTb);
+            this.cashGroupBox.Controls.Add(this.amountTenderedTb);
+            this.cashGroupBox.Controls.Add(this.changeDueLbl);
+            this.cashGroupBox.Controls.Add(this.amountTenderedLbl);
+            this.cashGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashGroupBox.Location = new System.Drawing.Point(19, 296);
+            this.cashGroupBox.Name = "cashGroupBox";
+            this.cashGroupBox.Size = new System.Drawing.Size(288, 83);
+            this.cashGroupBox.TabIndex = 14;
+            this.cashGroupBox.TabStop = false;
+            this.cashGroupBox.Text = "Cash Payment Details";
             // 
             // changeDueTb
             // 
@@ -195,23 +195,23 @@
             this.amountTenderedLbl.TabIndex = 13;
             this.amountTenderedLbl.Text = "Amount Tendered:";
             // 
-            // cardGb
+            // cardGroupBox
             // 
-            this.cardGb.Controls.Add(this.cvvTb);
-            this.cardGb.Controls.Add(this.cardholderNameTb);
-            this.cardGb.Controls.Add(this.expiryDateTb);
-            this.cardGb.Controls.Add(this.cardNumberTb);
-            this.cardGb.Controls.Add(this.cvvLbl);
-            this.cardGb.Controls.Add(this.cardholderNameLbl);
-            this.cardGb.Controls.Add(this.expiryDateLbl);
-            this.cardGb.Controls.Add(this.cardNumberLbl);
-            this.cardGb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cardGb.Location = new System.Drawing.Point(19, 385);
-            this.cardGb.Name = "cardGb";
-            this.cardGb.Size = new System.Drawing.Size(288, 146);
-            this.cardGb.TabIndex = 17;
-            this.cardGb.TabStop = false;
-            this.cardGb.Text = "Card Payment Details";
+            this.cardGroupBox.Controls.Add(this.cvvTb);
+            this.cardGroupBox.Controls.Add(this.cardholderNameTb);
+            this.cardGroupBox.Controls.Add(this.expiryDateTb);
+            this.cardGroupBox.Controls.Add(this.cardNumberTb);
+            this.cardGroupBox.Controls.Add(this.cvvLbl);
+            this.cardGroupBox.Controls.Add(this.cardholderNameLbl);
+            this.cardGroupBox.Controls.Add(this.expiryDateLbl);
+            this.cardGroupBox.Controls.Add(this.cardNumberLbl);
+            this.cardGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardGroupBox.Location = new System.Drawing.Point(19, 385);
+            this.cardGroupBox.Name = "cardGroupBox";
+            this.cardGroupBox.Size = new System.Drawing.Size(288, 146);
+            this.cardGroupBox.TabIndex = 17;
+            this.cardGroupBox.TabStop = false;
+            this.cardGroupBox.Text = "Card Payment Details";
             // 
             // cvvTb
             // 
@@ -285,20 +285,20 @@
             this.cardNumberLbl.TabIndex = 13;
             this.cardNumberLbl.Text = "Card Number:";
             // 
-            // panel1
+            // orderDetailPanel
             // 
-            this.panel1.Controls.Add(this.timeTb);
-            this.panel1.Controls.Add(this.dateTb);
-            this.panel1.Controls.Add(this.transactionIDTb);
-            this.panel1.Controls.Add(this.orderIDTb);
-            this.panel1.Controls.Add(this.timeLbl);
-            this.panel1.Controls.Add(this.dateLbl);
-            this.panel1.Controls.Add(this.transactionIDLbl);
-            this.panel1.Controls.Add(this.orderIDLbl);
-            this.panel1.Location = new System.Drawing.Point(19, 42);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(288, 127);
-            this.panel1.TabIndex = 25;
+            this.orderDetailPanel.Controls.Add(this.timeTb);
+            this.orderDetailPanel.Controls.Add(this.dateTb);
+            this.orderDetailPanel.Controls.Add(this.transactionIDTb);
+            this.orderDetailPanel.Controls.Add(this.orderIDTb);
+            this.orderDetailPanel.Controls.Add(this.timeLbl);
+            this.orderDetailPanel.Controls.Add(this.dateLbl);
+            this.orderDetailPanel.Controls.Add(this.transactionIDLbl);
+            this.orderDetailPanel.Controls.Add(this.orderIDLbl);
+            this.orderDetailPanel.Location = new System.Drawing.Point(19, 42);
+            this.orderDetailPanel.Name = "orderDetailPanel";
+            this.orderDetailPanel.Size = new System.Drawing.Size(288, 127);
+            this.orderDetailPanel.TabIndex = 25;
             // 
             // timeTb
             // 
@@ -372,18 +372,18 @@
             this.orderIDLbl.TabIndex = 25;
             this.orderIDLbl.Text = "Order ID:";
             // 
-            // panel2
+            // costDetailPanel
             // 
-            this.panel2.Controls.Add(this.totalTb);
-            this.panel2.Controls.Add(this.taxTb);
-            this.panel2.Controls.Add(this.subtotalTb);
-            this.panel2.Controls.Add(this.taxLbl);
-            this.panel2.Controls.Add(this.subtotalLbl);
-            this.panel2.Controls.Add(this.totalLbl);
-            this.panel2.Location = new System.Drawing.Point(19, 178);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(288, 100);
-            this.panel2.TabIndex = 27;
+            this.costDetailPanel.Controls.Add(this.totalTb);
+            this.costDetailPanel.Controls.Add(this.taxTb);
+            this.costDetailPanel.Controls.Add(this.subtotalTb);
+            this.costDetailPanel.Controls.Add(this.taxLbl);
+            this.costDetailPanel.Controls.Add(this.subtotalLbl);
+            this.costDetailPanel.Controls.Add(this.totalLbl);
+            this.costDetailPanel.Location = new System.Drawing.Point(19, 178);
+            this.costDetailPanel.Name = "costDetailPanel";
+            this.costDetailPanel.Size = new System.Drawing.Size(288, 100);
+            this.costDetailPanel.TabIndex = 27;
             // 
             // totalTb
             // 
@@ -504,27 +504,27 @@
             this.Controls.Add(this.searchOrderBtn);
             this.Controls.Add(this.processRefundBtn);
             this.Controls.Add(this.processPaymentBtn);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.cardGb);
-            this.Controls.Add(this.cashGb);
-            this.Controls.Add(this.pmtTypeGb);
-            this.Controls.Add(this.titleLbl);
-            this.Controls.Add(this.saveTxBtn);
+            this.Controls.Add(this.costDetailPanel);
+            this.Controls.Add(this.orderDetailPanel);
+            this.Controls.Add(this.cardGroupBox);
+            this.Controls.Add(this.cashGroupBox);
+            this.Controls.Add(this.pmtTypeGroupBox);
+            this.Controls.Add(this.paymentTitleLbl);
+            this.Controls.Add(this.saveTransactionBtn);
             this.Controls.Add(this.printReceiptBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "paymentFrm";
             this.Text = "Payment - Cracked Cup POS";
-            this.pmtTypeGb.ResumeLayout(false);
-            this.pmtTypeGb.PerformLayout();
-            this.cashGb.ResumeLayout(false);
-            this.cashGb.PerformLayout();
-            this.cardGb.ResumeLayout(false);
-            this.cardGb.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pmtTypeGroupBox.ResumeLayout(false);
+            this.pmtTypeGroupBox.PerformLayout();
+            this.cashGroupBox.ResumeLayout(false);
+            this.cashGroupBox.PerformLayout();
+            this.cardGroupBox.ResumeLayout(false);
+            this.cardGroupBox.PerformLayout();
+            this.orderDetailPanel.ResumeLayout(false);
+            this.orderDetailPanel.PerformLayout();
+            this.costDetailPanel.ResumeLayout(false);
+            this.costDetailPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -532,15 +532,15 @@
 
         #endregion
         private System.Windows.Forms.Button printReceiptBtn;
-        private System.Windows.Forms.Button saveTxBtn;
-        private System.Windows.Forms.Label titleLbl;
-        private System.Windows.Forms.GroupBox pmtTypeGb;
-        private System.Windows.Forms.RadioButton CardRbtn;
-        private System.Windows.Forms.RadioButton cashRbtn;
-        private System.Windows.Forms.GroupBox cashGb;
+        private System.Windows.Forms.Button saveTransactionBtn;
+        private System.Windows.Forms.Label paymentTitleLbl;
+        private System.Windows.Forms.GroupBox pmtTypeGroupBox;
+        private System.Windows.Forms.RadioButton cardRdo;
+        private System.Windows.Forms.RadioButton cashRdo;
+        private System.Windows.Forms.GroupBox cashGroupBox;
         private System.Windows.Forms.Label changeDueLbl;
         private System.Windows.Forms.Label amountTenderedLbl;
-        private System.Windows.Forms.GroupBox cardGb;
+        private System.Windows.Forms.GroupBox cardGroupBox;
         private System.Windows.Forms.Label cvvLbl;
         private System.Windows.Forms.Label cardholderNameLbl;
         private System.Windows.Forms.Label expiryDateLbl;
@@ -549,7 +549,7 @@
         private System.Windows.Forms.TextBox cardholderNameTb;
         private System.Windows.Forms.TextBox expiryDateTb;
         private System.Windows.Forms.TextBox cardNumberTb;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel orderDetailPanel;
         private System.Windows.Forms.TextBox timeTb;
         private System.Windows.Forms.TextBox dateTb;
         private System.Windows.Forms.TextBox transactionIDTb;
@@ -560,7 +560,7 @@
         private System.Windows.Forms.Label orderIDLbl;
         private System.Windows.Forms.TextBox changeDueTb;
         private System.Windows.Forms.TextBox amountTenderedTb;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel costDetailPanel;
         private System.Windows.Forms.TextBox totalTb;
         private System.Windows.Forms.TextBox taxTb;
         private System.Windows.Forms.TextBox subtotalTb;
