@@ -9,6 +9,7 @@ Structure Product
     Declare Real productPrice
     Declare Integer productQuantity
 
+    //Constructor
     Module Product(Integet proID = 0, String proName = "", String proDesc = "", Real proPrice = 0.0, Integer proQuantity = 0)
         Set productID = proID
         Set productName = proName

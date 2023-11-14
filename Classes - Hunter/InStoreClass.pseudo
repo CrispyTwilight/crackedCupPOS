@@ -2,17 +2,19 @@
 //Date: 11/6/23
 //Desc: In Store subclass for cracked Cup POS
 
-Import OrderClass.pseudo
+Import OrderClass.pseudo class
 
 Class InStore Extends Order
     Declare Private String customerName
     Declare Private String tableNumber
 
+    //Constructor
     Public Module InStore(String cn, String tn)
         Call setCustomerName(cn)
         Call setTableNum(tn)
     End Module
 
+    //Setters
     Public Module setTableNum(String tn)
         Set tableNumber = tn
     End Module
@@ -21,6 +23,7 @@ Class InStore Extends Order
         Set customerName = cn
     End Module
 
+    //Getters
     Public Function getTableNum()
         Return tableNumber
     End Function
