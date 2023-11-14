@@ -32,10 +32,149 @@ Form homeFrm
     End Module
 End Form
 
-// Order Form
+// Order Form Author: Hunter Kauffman
 Form orderFrm
+    Module Init() //Initializes Module
+        Declare Order order
+        Declare Integer quantity
+    End Module
 
+    Module americanoBtn_Click() //Adds item to order
+        Set quantity = quantityTB.Text
+        Declare Product americano(1, "Americano", "Americano", 5.99, quantity)
 
+        Call order.addItem(americano)
+
+        Set orderLb.Items.Add("Americano")
+    End Module
+
+    Module blackCoffeBtn_Click() //Adds item to order
+        Set quantity = quantityTB.Text
+        Declare Product blackCoffe(2, "Black Coffee", "Black Coffee", 5.99, quantity)
+
+        Call order.addItem(blackCoffe)
+
+        Set orderLb.Items.Add("Black Coffee")
+    End Module
+
+    Module cappuccinoBtn_Click() //Adds item to order
+        Set quantity = quantityTB.Text
+        Declare Product cappuccino(3, "Cappuccino", "Cappuccino", 5.99, quantity)
+
+        Call order.addItem(cappuccino)
+
+        Set orderLb.Items.Add("Cappuccino")
+    End Module
+
+    Module coldBrewBtn_Click() //Adds item to order
+        Set quantity = quantityTB.Text
+        Declare Product coldBrew(4, "Cold Brew", "Cold Brew", 5.99, quantity)
+
+        Call order.addItem(coldBrew)
+
+        Set orderLb.Items.Add("Cold Brew")
+    End Module
+
+    Module espressoBtn_Click() //Adds item to order 
+        Set quantity = quantityTB.Text
+        Declare Product espresso(5, "Espresso", "Espresso", 5.99, quantity)
+
+        Call order.addItem(espresso)
+
+        Set orderLb.Items.Add("Espresso")
+    End Module
+
+    Module frappeBtn_Click() //Adds item to order
+        Set quantity = quantityTB.Text
+        Declare Product frappe(6, "Frappe", "Frappe", 5.99, quantity)
+
+        Call order.addItem(frappe)
+
+        Set orderLb.Items.Add("Frappe")
+    End Module
+
+    Module latteBtn_Click() //Adds item to order
+        Set quantity = quantityTB.Text
+        Declare Product latte(7, "Latte", "Latte", 5.99, quantity)
+
+        Call order.addItem(latte)
+
+        Set orderLb.Items.Add("Latte")
+    End Module
+    
+    Module macchiatoBtn_Click() //Adds item to order
+        Set quantity = quantityTB.Text
+        Declare Product macchiato(8, "Macchiato", "Macchiato", 5.99, quantity)
+
+        Call order.addItem(macchiato)
+
+        Set orderLb.Items.Add("Macchiato")
+    End Module
+
+    Module mochaBtn_Click() //Adds item to order
+        Set quantity = quantityTB.Text
+        Declare Product mocha(9, "Mocha", "Mocha", 5.99, quantity)
+
+        Call order.addItem(mocha)
+
+        Set orderLb.Items.Add("Mocha")
+    End Module
+
+    Module bagelBtn_Click() //Adds item to order
+        Set quantity = quantityTB.Text
+        Declare Product bagel(10, "Bagel", "Bagel", 5.99, quantity)
+
+        Call order.addItem(bagel)
+
+        Set orderLb.Items.Add("Bagel")
+    End Module
+
+    Module danishBtn_Click() //Adds item to order
+        Set quantity = quantityTB.Text
+        Declare Product danish(11, "Danish", "Danish", 5.99, quantity)
+
+        Call order.addItem(danish)
+
+        Set orderLb.Items.Add("Danish")
+    End Module
+
+    Module donutsBtn_Click() //Adds item to order
+        Set quantity = quantityTB.Text
+        Declare Product donuts(12, "Donuts", "Donuts", 5.99, quantity)
+
+        Call order.addItem(donuts)
+
+        Set orderLb.Items.Add("Donuts")
+    End Module
+
+    Module paymentBtn_Click() //Sets order Id, type, Status, and calculates the total
+        Declare Real total
+        Set order.setOrderId(stringToInteger(orderIDTb.Text))
+
+        If inStoreRb.Checked = true Then
+            Set order.setOrderType(0)
+        Else If takeOutRb.Checked = true
+        Set order.setOrderType(1)
+        End If
+
+        If orderedRb.Checked = true Then
+            Set order.setOrderStatus(0)
+        Else If preparingRb.Checked = true
+            Set order.setOrderStatus(1)
+        Else If completedTb.Checked = true
+            Set order.setOrderStatus(0)
+        End If
+        
+        total = order.calculateTotalCost()
+
+        messageBox.show("Your total is: ", total)
+
+        Call paymentFrm.show()
+    End Module
+
+    Module returnBtn_Click() //returns to the home page
+        Call homeFrm.show()
+    End Module
 End Form
 
 // Payment Form Auth: John O'Neal

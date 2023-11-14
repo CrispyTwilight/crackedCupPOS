@@ -2,7 +2,7 @@
 //Date: 11/6/23
 //Desc: Order class for cracked Cup POS
 
-Import ProductStruc.pseudo
+Import ProductStruc.pseudo Structure
 
 Class Order
     Declare Private Integer orderID
@@ -12,7 +12,7 @@ Class Order
     Declare Private Real orderTotal
     Declare Private Vector<Product> orderProducts
 
-    Public Module Order(Integer oID = 0, Integer ot = 0, Integer os 0, Integer oq = 0, Real oTotal = 0.0)
+    Public Module Order(Integer oID = 0, Integer ot = 0, Integer os 0, Integer oq = 0, Real oTotal = 0.0) //Constructor
         Set orderID = oID
         Set orderType = ot
         Set orderStatus = os
@@ -20,7 +20,58 @@ Class Order
         Set order = oTotal
     End Module
 
-    Public Function calculateTotalCost()
+    //Setters
+    Public Module setOrderId(Integer oID)
+        Set orderID = oID
+    End Module
+
+    Public Module setOrderType(Integer ot)
+        Set orderType = ot
+    End Module
+        
+    Public Module setOrderStatus(Integer os)
+        Set orderStatus = os
+    End Module
+
+    Public Module setOrderQuantity(Integer oq)
+        Set orderQuantity = oq
+    End Module
+
+    Public Module setOrderTotal(Integer ot)
+        Set orderTotal = ot
+    End Module
+
+    Public Module setOrderProfucts(Product pro)
+        Set orderProducts.push_back(pro)
+    End Module
+
+    //Getters
+    Public Function getOrderId()
+        Return orderID
+    End Function
+
+    Public Function getOrderType()
+        Return orderType
+    End Function
+
+    Public Function getOrderStatus()
+        Return orderStatus
+    End Function
+
+    Public Function getOrderQuantity()
+        Return orderQuantity
+    End Function
+
+    Public Function getOrderTotal()
+        Return orderTotal
+    End Function
+
+    Public Function getOrderProducts()
+        Return orderProducts
+    End Function
+
+    //Member Functions
+    Public Function calculateTotalCost() //Calculates total cost of the order
         Declare Product product
         For Each product In orderProducts
             Set orderTotal = orderTotal + Product.productPrice
@@ -28,11 +79,11 @@ Class Order
         Return orderTotal
     End Function
 
-    Public Module addItem(Product pro)
+    Public Module addItem(Product pro) //Adds and item to the vector orderProducts
         Set orderProducts.push_back(pro)
     End Module
 
-    Public Module removeItem(Product pro)
+    Public Module removeItem(Product pro) //Removes and item to the vector orderProducts
         Set orderProducts.pop_back()
     End Module
 End Class
