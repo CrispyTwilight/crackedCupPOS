@@ -1,0 +1,207 @@
+// Auth: John O'Neal
+// Date: 11/13/2023
+// Desc: Payment Superclass
+
+Include Trasaction.pseudo Structure
+
+// This class is used to store payment information.
+Class Payment
+    // Create and instance of the Transaction structure. This has all the necessary attributes for a transaction.
+    Private Transaction transaction
+    Private Constant Real TAX_RATE = 0.07
+
+    // Constructor with default values and member initializer list
+    Public Module Payment(Integer transactionID = Transaction::nextOrderID, Integer orderID = Transaction::nextTransactionID, Integer paymentTypeCode = 0, Integer paymentStatusCode = 0, Real subtotal = 0.0, Real tax = 0.0, Real totalCost = 0.0, String date = "", String time = "")
+        transaction(transactionID, orderID, paymentTypeCode, paymentStatusCode, subtotal, tax, totalCost, date, time)
+    End Constructor
+
+    // Deconstructor
+    Public Module ~Payment
+        // Default deconstructor
+    End Deconstructor
+
+    // Getters
+    Public Constant Function getOrderID()
+        Return transaction.orderID
+    End Function
+
+    Public Constant Function getTransactionID()
+        Return transaction.transactionID
+    End Function
+
+    Public Constant Function getPaymentTypeCode()
+        Return transaction.paymentTypeCode
+    End Function
+
+    Public Constant Function getPaymentStatusCode()
+        Return transaction.paymentStatusCode
+    End Function
+
+    Public Constant Function getSubtotal()
+        Return transaction.subtotal
+    End Function
+
+    Public Constant Function getTax()
+        Return transaction.tax
+    End Function
+
+    Public Constant Function getTotalCost()
+        Return transaction.totalCost
+    End Function
+
+    Public Constant Function getDate()
+        Return transaction.date
+    End Function
+
+    Public Constant Function getTime()
+        Return transaction.time
+    End Function
+
+    // Setters
+    Public Module setOrderID (Constant Ref Integer oID)
+        Set transaction.orderID = oID
+    End Module
+
+    Public Module setTransactionID (Constant Ref Integer txID)
+        Set transaction.transactionID = txID
+    End Module
+
+    Public Module setPaymentTypeCode (Constant Ref Integer pType)
+        Set transaction.paymentTypeCode = pType
+    End Module
+
+    Public Module setPaymentStatusCode (Constant Ref Integer pStatus)
+        Set transaction.paymentStatusCode = pStatus
+    End Module
+
+    Public Module setSubtotal (Constant Ref Real sub)
+        Set transaction.subtotal = sub
+    End Module
+
+    Public Module setTax ()
+        Set transaction.tax = transaction.subtotal * TAX_RATE
+    End Module
+
+    Public Module setTotalCost ()
+        Set transaction.totalCost = transaction.subtotal + transaction.tax
+    End Module
+
+    Public Module setDate (Constant Ref String date)
+        Set transaction.date = date
+    End Module
+
+    Public Module setTime (Constant Ref String time)
+        Set transaction.time = time
+    End Module
+
+    // Member functions
+    // Function to process a refund
+    Public Module processRefund()
+        Call setSubtotal(getSubtotal() * -1)
+		Call setTax()
+		Call setTotalCost()
+		Call setPaymentStatusCode(2);  // Set to 2 to indicate refund is successful
+    End Module
+
+    // Function to show the receipt
+    Public Module displayReceipt()
+        messageBox.Show("Date: ", getDate(),
+                        "Time: ", getTime(),
+                        "Order ID: ", getOrderID(),
+                        "Transaction ID: ", getTransactionID(),
+                        "Payment Type Code: ", getPaymentTypeCode(),
+                        "Payment Status Code: ", getPaymentStatusCode(),
+                        "Subtotal: ", getSubtotal(),
+                        "Tax: ", getTax(),
+                        "Total Cost: ", getTotalCost())
+    End Module
+
+    // Function to write a transaction to a file
+    Public Module writeTransactionToFile()
+        // Open a file for appending
+        Declare OutputFile AppendMode transactionFile
+        Open transactionFile "transactions.csv"
+        // If the file could not be opened, show an error message and return
+        If NOT transactionFile Then
+            messageBox.Show("Error opening file.")
+            Return
+        End If
+
+        // If the file is empty, write the header line
+        If transactionFile = empty Then
+            WriteLine transactionFile "Date,Time,Order ID,Transaction ID,Payment Type Code,Payment Status Code,Subtotal,Tax,Total Cost,Amount Tendered, Change Due,Card Number,Expiry Date,Card Holder Name,CVV"
+        End If
+
+        // Write the transaction to the file
+        WriteLine transactionFile getDate(), ",", getTime(), ",", getOrderID(), ",", getTransactionID(), ",", getPaymentTypeCode(), ",", getPaymentStatusCode(), ",", getSubtotal(), ",", getTax(), ",", getTotalCost(), ","
+
+        // Close the file
+        Close transactionFile
+
+        // Print a success message
+        messageBox.Show("Transaction written to file successfully.")
+    End Module
+
+    // Function to read transactions from a file taking a vector of Payment objects as a parameter
+    Public Constant Module readTransactionFromFile(Ref Vector<Payment> transactions)
+        // Open the transactions.csv file for reading
+        Declare InputFile transactionFile "transactions.csv"
+        
+        // If the file could not be opened, show an error message and return
+        If NOT transactionFile Then
+            messageBox.Show("Error opening file.")
+            Return
+        End If
+
+        Declare String line
+        // Skip the header line by reading it into a dummy variable
+        ReadLine transactionFile line
+
+        // While there are more lines in the file
+        While NOT eof (transactionFile)
+            // Create a stringstream from the line
+            ReadLine transactionFile line
+            Declare StringStream ss line
+            Declare String field
+            Declare Vector<String> fields
+
+            // While there are more fields in the stringstream
+            While ReadLine ss into field using ',' as the delimiter
+                // Add the field to the fields vector
+                Add field to fields
+            End While
+
+            // Try to create a Payment object from the fields and add it to the transactions vector
+            Try
+                Declare Payment payment(stringToInteger(fields[0]), stringToInteger(fields[1]), stringToInteger(fields[2]), stringToInteger(fields[3]), stringToReal(fields[4]), stringToReal(fields[5]), stringToReal(fields[6]), fields[7], fields[8])
+                Add payment to transactions
+            Catch Exception e
+                // If an exception is thrown, show an error message
+                messageBox.Show("Error: Could not parse line in transactions.csv: ", line)
+            End Try
+        End While
+
+        // If the transactions vector is empty, print a message
+        If transactions = empty Then
+            messageBox.Show("No transactions found in the file.")
+        Else
+            // Otherwise, show a success message
+            messageBox.Show("Transactions read from file successfully.")
+        End If
+    End Module
+
+    Public Module searchTransactionByOrderID(Integer orderID, Constant Ref Vector<Payment> transactions)
+        // For each payment in the transactions vector
+        For Each payment in transactions
+            // If the order ID of the payment matches the provided order ID
+            If payment.getOrderID() == orderID Then
+                // Print a success message and return
+                messageBox.Show("Transaction found!")
+                Return
+            End If
+        End For
+
+        // If no match was found, print an error message
+        messageBox.Show("No transaction found with order ID ", orderID, ".")
+    End Module
+End Class

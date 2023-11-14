@@ -1,0 +1,74 @@
+// Auth: John O'Neal
+// Date: 11/13/2023
+// Desc: Payment_Cash Subclass
+
+Include Payment.pseudo class
+
+// This class extends the Payment class for cash payments.
+Class Payment_Cash extends Payment
+    Declare Private Real amountTendered
+    Declare Private Real changeDue
+
+    // Constructor with default values
+    Public Module Payment_Cash(Real amtTend = 0.0, Real chngeDue = 0.0)
+        Call Payment() // parent constructor
+        Set amountTendered = amtTend
+        Set changeDue = chngeDue
+    End Constructor
+
+    // Getters
+    Public Constant Function Real getAmountTendered()
+        Return amountTendered
+    End Function
+
+    Public Constant Function Real getChangeDue()
+        Return changeDue
+    End Function
+
+    // Setters
+    Public Module setAmountTendered(Real amtTend)
+        Set amountTendered = amtTend
+    End Module
+
+    Public Module setChangeDue()
+        Set changeDue = amountTendered - Call getTotalCost() // Calculate changeDue based on amountTendered and totalCost
+        If changeDue < 0 Then
+            Set changeDue = 0 // If the customer didn't tender enough money, there's no change, they still owe the difference
+        End If
+    End Module
+
+    // Member functions
+    Public Module processPayment()
+        // Validate amountTendered
+        If amountTendered <= 0.0 OR amountTendered < getTotalCost() Then
+            messageBox.Show("Insufficient funds. Payment failed.")
+            Return
+        End If
+		// Update the payment info specific to cash payments        
+        Call setPaymentStatusCode(1) // 1 is the code for a successful payment
+        Call setPaymentTypeCode(1) // 1 is the code for cash
+        messageBox.Show("Payment successful.")
+    End Module
+
+    Public Module printReceipt() overrides Parent printReceipt()
+        // Call the superclass's printReceipt function
+        Call Parent printReceipt()
+        // Show the cash-specific details
+        messageBox.Show("Amount Tendered: ", Call getAmountTendered(),
+                        "Change Due: ", Call getChangeDue())
+    End Module
+
+    Public Module writeTransactionToFile() overrides Parent writeTransactionToFile()
+        Call Parent writeTransactionToFile()
+        // Open a file for appending
+        Declare OutputFile AppendMode transactionFile
+        Open transactionFile "transactions.csv"
+        // If the file could not be opened, show an error message and return
+        If NOT transactionFile Then
+            messageBox.Show("Error opening file.")
+            Return
+        End If
+        WriteLine Call getAmountTendered(), ",", Call getChangeDue()
+        Close transactionFile
+    End Module
+End Class
