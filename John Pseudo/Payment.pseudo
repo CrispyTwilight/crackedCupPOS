@@ -2,7 +2,7 @@
 // Date: 11/13/2023
 // Desc: Payment Superclass
 
-Include Trasaction.pseudo Structure
+Import Trasaction.pseudo Structure
 
 // This class is used to store payment information.
 Class Payment
@@ -105,7 +105,7 @@ Class Payment
 
     // Function to show the receipt
     Public Module displayReceipt()
-        messageBox.Show("Date: ", getDate(),
+        messageBox_Show("Date: ", getDate(),
                         "Time: ", getTime(),
                         "Order ID: ", getOrderID(),
                         "Transaction ID: ", getTransactionID(),
@@ -123,7 +123,7 @@ Class Payment
         Open transactionFile "transactions.csv"
         // If the file could not be opened, show an error message and return
         If NOT transactionFile Then
-            messageBox.Show("Error opening file.")
+            messageBox_Show("Error opening file.")
             Return
         End If
 
@@ -139,7 +139,7 @@ Class Payment
         Close transactionFile
 
         // Print a success message
-        messageBox.Show("Transaction written to file successfully.")
+        messageBox_Show("Transaction written to file successfully.")
     End Module
 
     // Function to read transactions from a file taking a vector of Payment objects as a parameter
@@ -149,7 +149,7 @@ Class Payment
         
         // If the file could not be opened, show an error message and return
         If NOT transactionFile Then
-            messageBox.Show("Error opening file.")
+            messageBox_Show("Error opening file.")
             Return
         End If
 
@@ -177,16 +177,16 @@ Class Payment
                 Add payment to transactions
             Catch Exception e
                 // If an exception is thrown, show an error message
-                messageBox.Show("Error: Could not parse line in transactions.csv: ", line)
+                messageBox_Show("Error: Could not parse line in transactions.csv: ", line)
             End Try
         End While
 
         // If the transactions vector is empty, print a message
         If transactions = empty Then
-            messageBox.Show("No transactions found in the file.")
+            messageBox_Show("No transactions found in the file.")
         Else
             // Otherwise, show a success message
-            messageBox.Show("Transactions read from file successfully.")
+            messageBox_Show("Transactions read from file successfully.")
         End If
     End Module
 
@@ -196,12 +196,12 @@ Class Payment
             // If the order ID of the payment matches the provided order ID
             If payment.getOrderID() == orderID Then
                 // Print a success message and return
-                messageBox.Show("Transaction found!")
+                messageBox_Show("Transaction found!")
                 Return
             End If
         End For
 
         // If no match was found, print an error message
-        messageBox.Show("No transaction found with order ID ", orderID, ".")
+        messageBox_Show("No transaction found with order ID ", orderID, ".")
     End Module
 End Class

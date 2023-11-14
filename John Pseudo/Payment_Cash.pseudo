@@ -2,7 +2,7 @@
 // Date: 11/13/2023
 // Desc: Payment_Cash Subclass
 
-Include Payment.pseudo class
+Import Payment.pseudo class
 
 // This class extends the Payment class for cash payments.
 Class Payment_Cash extends Payment
@@ -41,20 +41,20 @@ Class Payment_Cash extends Payment
     Public Module processPayment()
         // Validate amountTendered
         If amountTendered <= 0.0 OR amountTendered < getTotalCost() Then
-            messageBox.Show("Insufficient funds. Payment failed.")
+            messageBox_Show("Insufficient funds. Payment failed.")
             Return
         End If
 		// Update the payment info specific to cash payments        
         Call setPaymentStatusCode(1) // 1 is the code for a successful payment
         Call setPaymentTypeCode(1) // 1 is the code for cash
-        messageBox.Show("Payment successful.")
+        messageBox_Show("Payment successful.")
     End Module
 
     Public Module printReceipt() overrides Parent printReceipt()
         // Call the superclass's printReceipt function
         Call Parent printReceipt()
         // Show the cash-specific details
-        messageBox.Show("Amount Tendered: ", Call getAmountTendered(),
+        messageBox_Show("Amount Tendered: ", Call getAmountTendered(),
                         "Change Due: ", Call getChangeDue())
     End Module
 
@@ -65,7 +65,7 @@ Class Payment_Cash extends Payment
         Open transactionFile "transactions.csv"
         // If the file could not be opened, show an error message and return
         If NOT transactionFile Then
-            messageBox.Show("Error opening file.")
+            messageBox_Show("Error opening file.")
             Return
         End If
         WriteLine Call getAmountTendered(), ",", Call getChangeDue()

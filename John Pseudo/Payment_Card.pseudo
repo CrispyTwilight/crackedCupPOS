@@ -2,7 +2,7 @@
 // Date: 11/13/2023
 // Desc: Payment_Card Subclass
 
-Include Payment.pseudo class
+Import Payment.pseudo class
 
 // This class extends the Payment class for card payments.
 
@@ -65,14 +65,14 @@ Class Payment_Card extends Payment
         // Update the payment info specific to card payments
         Call setPaymentStatusCode(1);  // Set to 1 to indicate payment is successful
 		Call setPaymentTypeCode(2); // Set to 2 to indicate payment is a card payment
-        messageBox.Show("Payment successful.")
+        messageBox_Show("Payment successful.")
     End Module
 
     Public Module printReceipt() overrides Parent printReceipt()
         // Call the superclass's printReceipt function
         Call Parent printReceipt()
         // Show the card-specific details
-        messageBox.Show("Card Number: ", Call getCardNumber(),
+        messageBox_Show("Card Number: ", Call getCardNumber(),
                         "Expiry Date: ", Call getExpiryDate(),
                         "Card Holder Name: ", Call getCardHolderName(),
                         "CVV: ", Call getCVV())
@@ -86,7 +86,7 @@ Class Payment_Card extends Payment
         Open transactionFile "transactions.csv"
         // If the file could not be opened, show an error message and return
         If NOT transactionFile Then
-            messageBox.Show("Error opening file.")
+            messageBox_Show("Error opening file.")
             Return
         End If
         WriteLine ",", "," // Write two empty fields to the file
