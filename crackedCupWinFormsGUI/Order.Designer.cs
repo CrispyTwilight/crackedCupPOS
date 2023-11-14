@@ -1,6 +1,6 @@
 ﻿namespace crackedCupWinFormsGUI
 {
-    partial class Order
+    partial class orderFrm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(orderFrm));
             this.titleLbl = new System.Windows.Forms.Label();
             this.americanoBtn = new System.Windows.Forms.Button();
             this.blackCoffeBtn = new System.Windows.Forms.Button();
@@ -44,9 +44,20 @@
             this.donuts = new System.Windows.Forms.Button();
             this.orderLB = new System.Windows.Forms.ListBox();
             this.quantityLbl = new System.Windows.Forms.Label();
-            this.quantityCB = new System.Windows.Forms.ComboBox();
             this.paymentBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.orderIDTb = new System.Windows.Forms.TextBox();
+            this.orderIDLb = new System.Windows.Forms.Label();
+            this.orderTypeGb = new System.Windows.Forms.GroupBox();
+            this.inStoreRb = new System.Windows.Forms.RadioButton();
+            this.takeOutRb = new System.Windows.Forms.RadioButton();
+            this.orderStatusGb = new System.Windows.Forms.GroupBox();
+            this.preparingRb = new System.Windows.Forms.RadioButton();
+            this.orderedRb = new System.Windows.Forms.RadioButton();
+            this.completedTb = new System.Windows.Forms.RadioButton();
+            this.orderTypeGb.SuspendLayout();
+            this.orderStatusGb.SuspendLayout();
             this.SuspendLayout();
             // 
             // titleLbl
@@ -172,7 +183,7 @@
             this.orderLB.FormattingEnabled = true;
             this.orderLB.Location = new System.Drawing.Point(260, 41);
             this.orderLB.Name = "orderLB";
-            this.orderLB.Size = new System.Drawing.Size(217, 316);
+            this.orderLB.Size = new System.Drawing.Size(99, 316);
             this.orderLB.TabIndex = 22;
             // 
             // quantityLbl
@@ -184,45 +195,6 @@
             this.quantityLbl.Size = new System.Drawing.Size(58, 16);
             this.quantityLbl.TabIndex = 23;
             this.quantityLbl.Text = "Quantity:";
-            // 
-            // quantityCB
-            // 
-            this.quantityCB.FormattingEnabled = true;
-            this.quantityCB.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30"});
-            this.quantityCB.Location = new System.Drawing.Point(78, 369);
-            this.quantityCB.Name = "quantityCB";
-            this.quantityCB.Size = new System.Drawing.Size(42, 21);
-            this.quantityCB.TabIndex = 24;
             // 
             // paymentBtn
             // 
@@ -246,14 +218,120 @@
             this.button1.Text = "&Payment";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Order
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(73, 366);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 27;
+            // 
+            // orderIDTb
+            // 
+            this.orderIDTb.Location = new System.Drawing.Point(424, 37);
+            this.orderIDTb.Name = "orderIDTb";
+            this.orderIDTb.Size = new System.Drawing.Size(53, 20);
+            this.orderIDTb.TabIndex = 29;
+            // 
+            // orderIDLb
+            // 
+            this.orderIDLb.AutoSize = true;
+            this.orderIDLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderIDLb.Location = new System.Drawing.Point(365, 41);
+            this.orderIDLb.Name = "orderIDLb";
+            this.orderIDLb.Size = new System.Drawing.Size(57, 16);
+            this.orderIDLb.TabIndex = 28;
+            this.orderIDLb.Text = "OrderID:";
+            // 
+            // orderTypeGb
+            // 
+            this.orderTypeGb.Controls.Add(this.takeOutRb);
+            this.orderTypeGb.Controls.Add(this.inStoreRb);
+            this.orderTypeGb.Location = new System.Drawing.Point(368, 63);
+            this.orderTypeGb.Name = "orderTypeGb";
+            this.orderTypeGb.Size = new System.Drawing.Size(109, 76);
+            this.orderTypeGb.TabIndex = 30;
+            this.orderTypeGb.TabStop = false;
+            this.orderTypeGb.Text = "Order Type";
+            // 
+            // inStoreRb
+            // 
+            this.inStoreRb.AutoSize = true;
+            this.inStoreRb.Location = new System.Drawing.Point(7, 20);
+            this.inStoreRb.Name = "inStoreRb";
+            this.inStoreRb.Size = new System.Drawing.Size(59, 17);
+            this.inStoreRb.TabIndex = 0;
+            this.inStoreRb.TabStop = true;
+            this.inStoreRb.Text = "InStore";
+            this.inStoreRb.UseVisualStyleBackColor = true;
+            // 
+            // takeOutRb
+            // 
+            this.takeOutRb.AutoSize = true;
+            this.takeOutRb.Location = new System.Drawing.Point(7, 43);
+            this.takeOutRb.Name = "takeOutRb";
+            this.takeOutRb.Size = new System.Drawing.Size(68, 17);
+            this.takeOutRb.TabIndex = 1;
+            this.takeOutRb.TabStop = true;
+            this.takeOutRb.Text = "Take out";
+            this.takeOutRb.UseVisualStyleBackColor = true;
+            // 
+            // orderStatusGb
+            // 
+            this.orderStatusGb.Controls.Add(this.completedTb);
+            this.orderStatusGb.Controls.Add(this.preparingRb);
+            this.orderStatusGb.Controls.Add(this.orderedRb);
+            this.orderStatusGb.Location = new System.Drawing.Point(368, 145);
+            this.orderStatusGb.Name = "orderStatusGb";
+            this.orderStatusGb.Size = new System.Drawing.Size(109, 93);
+            this.orderStatusGb.TabIndex = 31;
+            this.orderStatusGb.TabStop = false;
+            this.orderStatusGb.Text = "Order Status";
+            // 
+            // preparingRb
+            // 
+            this.preparingRb.AutoSize = true;
+            this.preparingRb.Location = new System.Drawing.Point(7, 43);
+            this.preparingRb.Name = "preparingRb";
+            this.preparingRb.Size = new System.Drawing.Size(70, 17);
+            this.preparingRb.TabIndex = 1;
+            this.preparingRb.TabStop = true;
+            this.preparingRb.Text = "Preparing";
+            this.preparingRb.UseVisualStyleBackColor = true;
+            // 
+            // orderedRb
+            // 
+            this.orderedRb.AutoSize = true;
+            this.orderedRb.Location = new System.Drawing.Point(7, 20);
+            this.orderedRb.Name = "orderedRb";
+            this.orderedRb.Size = new System.Drawing.Size(69, 17);
+            this.orderedRb.TabIndex = 0;
+            this.orderedRb.TabStop = true;
+            this.orderedRb.Text = "Oredered";
+            this.orderedRb.UseVisualStyleBackColor = true;
+            // 
+            // completedTb
+            // 
+            this.completedTb.AutoSize = true;
+            this.completedTb.Location = new System.Drawing.Point(7, 66);
+            this.completedTb.Name = "completedTb";
+            this.completedTb.Size = new System.Drawing.Size(75, 17);
+            this.completedTb.TabIndex = 2;
+            this.completedTb.TabStop = true;
+            this.completedTb.Text = "Completed";
+            this.completedTb.UseVisualStyleBackColor = true;
+            // 
+            // orderFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 450);
+            this.ClientSize = new System.Drawing.Size(489, 420);
+            this.Controls.Add(this.orderStatusGb);
+            this.Controls.Add(this.orderTypeGb);
+            this.Controls.Add(this.orderIDTb);
+            this.Controls.Add(this.orderIDLb);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.paymentBtn);
-            this.Controls.Add(this.quantityCB);
             this.Controls.Add(this.quantityLbl);
             this.Controls.Add(this.orderLB);
             this.Controls.Add(this.donuts);
@@ -270,8 +348,12 @@
             this.Controls.Add(this.americanoBtn);
             this.Controls.Add(this.titleLbl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Order";
+            this.Name = "orderFrm";
             this.Text = "Order - Cracked Cup POS";
+            this.orderTypeGb.ResumeLayout(false);
+            this.orderTypeGb.PerformLayout();
+            this.orderStatusGb.ResumeLayout(false);
+            this.orderStatusGb.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,8 +376,17 @@
         private System.Windows.Forms.Button donuts;
         private System.Windows.Forms.ListBox orderLB;
         private System.Windows.Forms.Label quantityLbl;
-        private System.Windows.Forms.ComboBox quantityCB;
         private System.Windows.Forms.Button paymentBtn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox orderIDTb;
+        private System.Windows.Forms.Label orderIDLb;
+        private System.Windows.Forms.GroupBox orderTypeGb;
+        private System.Windows.Forms.RadioButton takeOutRb;
+        private System.Windows.Forms.RadioButton inStoreRb;
+        private System.Windows.Forms.GroupBox orderStatusGb;
+        private System.Windows.Forms.RadioButton completedTb;
+        private System.Windows.Forms.RadioButton preparingRb;
+        private System.Windows.Forms.RadioButton orderedRb;
     }
 }
